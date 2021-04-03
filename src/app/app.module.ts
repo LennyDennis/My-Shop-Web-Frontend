@@ -10,6 +10,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { MaterialComponent } from './material/material.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { TransactionsComponent } from './transactions/transactions.component';
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    CategoriesComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
