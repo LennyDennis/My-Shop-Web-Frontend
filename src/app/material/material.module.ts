@@ -17,6 +17,7 @@ const MaterialComponents = [
   MatPaginatorModule,
   MatSortModule,
   MatFormFieldModule,
+  MatInputModule,
   MatTableModule,
   MatFormFieldModule,
   MatInputModule,
@@ -24,7 +25,7 @@ const MaterialComponents = [
   MatDialogModule,
   MatButtonModule,
   FormsModule,
-  BrowserAnimationsModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({
