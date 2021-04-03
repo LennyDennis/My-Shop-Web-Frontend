@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
