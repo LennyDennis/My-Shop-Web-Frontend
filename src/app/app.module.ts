@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { MaterialModule } from './material/material.module';
 import { CategoryDialogComponent } from './dialog-box/category-dialog/category-dialog.component';
 import { ProductDialogComponent } from './dialog-box/product-dialog/product-dialog.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductDialogComponent } from './dialog-box/product-dialog/product-dial
     CategoriesComponent,
     CategoryDialogComponent,
     ProductDialogComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

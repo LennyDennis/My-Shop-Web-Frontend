@@ -1,0 +1,18 @@
+.mat-header-cell {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+}
+.button-end {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  bottom: 24px;
+}

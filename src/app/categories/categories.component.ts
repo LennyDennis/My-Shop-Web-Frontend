@@ -60,7 +60,7 @@ export class CategoriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result.event == "Add") {
         this.addRowData(result.data);
-      } else if (result.event == "Update") {
+      } else if (result.event == "Edit") {
         this.updateRowData(result.data);
       } else if (result.event == "Delete") {
         this.deleteRowData(result.data);
