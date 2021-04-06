@@ -5,24 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MaterialModule } from './material/material.module';
+import { CategoryDialogComponent } from './dialog-box/category-dialog/category-dialog.component';
+import { ProductDialogComponent } from './dialog-box/product-dialog/product-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
     TransactionsComponent,
     CategoriesComponent,
+    CategoryDialogComponent,
+    ProductDialogComponent,
   ],
   imports: [
     BrowserModule,
