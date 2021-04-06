@@ -5,6 +5,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from "@angular/material/icon";
+import {MatSelectModule} from '@angular/material/select';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
@@ -25,7 +26,8 @@ const MaterialComponents = [
   MatDialogModule,
   MatButtonModule,
   FormsModule,
-  BrowserAnimationsModule
+  BrowserAnimationsModule,
+  MatSelectModule
 ];
 
 @NgModule({

@@ -1,1 +1,39 @@
-<p>product-dialog works!</p>
+<h3 mat-dialog-title><strong>{{action}} Product</strong> </h3>
+
+<div mat-dialog-content>
+  <div *ngIf="action != 'Delete'; else elseTemplate">
+    <mat-form-field class="full-width">
+      <input placeholder="Name:" matInput [(ngModel)]="product_data.name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categories" [value]="category.categoryId">
+          {{category.categoryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input placeholder="Buying Price:" matInput [(ngModel)]="product_data.buyingPrice">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input placeholder="Selling Price:" matInput [(ngModel)]="product_data.sellingPrice">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input placeholder="Max Discount:" matInput [(ngModel)]="product_data.discount">
+    </mat-form-field>
+
+  </div>
+
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{product_data.name}}?</b>
+  </ng-template>
+</div>
+<div mat-dialog-actions align="end" class="row">
+  <button mat-button class="btn btn-success" (click)="doAction()">{{action}}</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</div>

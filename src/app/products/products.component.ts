@@ -58,7 +58,7 @@ export class ProductsComponent implements OnInit {
         this.editProduct(result.data);
       } else if (result.event == "Delete") {
         this.deleteProduct(result.data);
-      } else if (result.event == "AddStock") {
+      } else if (result.event == "Add Stock") {
         this.addProductStock(result.data);
       }
     });
