@@ -16,10 +16,13 @@ export class ProductDialogComponent implements OnInit {
 
   action:string;
   product_data:any;
+  category:string;
+  categoryId:number;
+
 
   categories: Category[] = [
-    {categoryId: 1, categoryName: 'Hydrogen'},
-    {categoryId: 2, categoryName: 'Helium'},
+    {categoryId: 1, categoryName: 'Electronic'},
+    {categoryId: 2, categoryName: 'Furniture'},
     {categoryId: 3, categoryName: 'Lithium'},
     {categoryId: 4, categoryName: 'Beryllium'},
     {categoryId: 5, categoryName: 'Boron'},
@@ -34,10 +37,15 @@ export class ProductDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<ProductsComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data:Category
   ) {
-    console.log(data)
     this.product_data = {...data};
     this.action = this.product_data.action;
+    if( this.action == "Edit"){
+      this.category = this.product_data.category;
+      const categorySelected = this.categories.find(c => c.categoryName == this.category);
+      this.categoryId = categorySelected.categoryId
+    }
   }
+
 
   doAction(){
     this.dialogRef.close({event:this.action,data:this.product_data});
@@ -48,6 +56,7 @@ export class ProductDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }

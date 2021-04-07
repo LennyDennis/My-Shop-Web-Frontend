@@ -10,11 +10,11 @@ const PRODUCT_DATA: Product[] = [
   {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 2, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 3, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
-  {id: 4, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
+  {id: 4, name: 'Watch',category:'Furniture',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 5, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 6, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 7, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
-  {id: 8, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
+  {id: 8, name: 'Watch',category:'Lithium',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 9, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'},
   {id: 10, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,quantity:1,status:'Active'}
 ];

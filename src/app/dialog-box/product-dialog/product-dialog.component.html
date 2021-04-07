@@ -1,12 +1,20 @@
-<h3 mat-dialog-title><strong>{{action}} Product</strong> </h3>
+<h3 mat-dialog-title *ngIf="action != 'Add Stock'; else elseAddStock">
+  <strong>{{action}} Product</strong>
+</h3>
+
+<ng-template #elseAddStock>
+  <h3 mat-dialog-title>
+    <strong>Add {{product_data.name}} Stock</strong>
+  </h3>
+</ng-template>
 
 <div mat-dialog-content>
-  <div *ngIf="action != 'Delete'; else elseTemplate">
+  <div *ngIf="action != 'Delete' && action != 'Add Stock'; else elseTemplate">
     <mat-form-field class="full-width">
       <input placeholder="Name:" matInput [(ngModel)]="product_data.name">
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field *ngIf="action != 'Edit'; else elseEdit" class="full-width">
       <mat-label>Category</mat-label>
       <mat-select>
         <mat-option *ngFor="let category of categories" [value]="category.categoryId">
@@ -14,6 +22,17 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <ng-template #elseEdit>
+      <mat-form-field class="full-width">
+        <mat-label>Category</mat-label>
+        <mat-select [(value)]="categoryId">
+          <mat-option *ngFor="let category of categories" [value]="category.categoryId">
+            {{category.categoryName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-template>
 
     <mat-form-field class="full-width">
       <input placeholder="Buying Price:" matInput [(ngModel)]="product_data.buyingPrice">
@@ -24,13 +43,29 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input placeholder="Max Discount:" matInput [(ngModel)]="product_data.discount">
+      <input placeholder="Max Discount:" matInput [(ngModel)]="product_data.maxDiscount">
     </mat-form-field>
 
   </div>
 
   <ng-template #elseTemplate>
-    Sure to delete <b>{{product_data.name}}?</b>
+    <div *ngIf="action != 'Delete'; else elseDelete">
+      <mat-form-field class="full-width">
+        <input placeholder="Name:" matInput [(ngModel)]="product_data.name" [readonly]="true">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input placeholder="Current Stock:" matInput [(ngModel)]="product_data.quantity" [readonly]="true">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input placeholder="New Stock:" matInput>
+      </mat-form-field>
+    </div>
+
+    <ng-template #elseDelete>
+      Sure to delete <b>{{product_data.name}}?</b>
+    </ng-template>
   </ng-template>
 </div>
 <div mat-dialog-actions align="end" class="row">
