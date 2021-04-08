@@ -14,6 +14,10 @@ import { MaterialModule } from './material/material.module';
 import { CategoryDialogComponent } from './dialog-box/category-dialog/category-dialog.component';
 import { ProductDialogComponent } from './dialog-box/product-dialog/product-dialog.component';
 import { ProductsComponent } from './products/products.component';
+import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
+import { GeneralSalesDialogComponent } from './dialog-box/general-sales-dialog/general-sales-dialog.component';
+import { BalancesComponent } from './sales/balances/balances.component';
+import { MostSoldComponent } from './sales/most-sold/most-sold.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { ProductsComponent } from './products/products.component';
     CategoryDialogComponent,
     ProductDialogComponent,
     ProductsComponent,
+    GeneralSalesComponent,
+    GeneralSalesDialogComponent,
+    BalancesComponent,
+    MostSoldComponent
   ],
   imports: [
     BrowserModule,

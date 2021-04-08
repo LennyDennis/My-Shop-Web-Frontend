@@ -1,0 +1,113 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>General Sales</h1>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+
+              <div class="row justify-content-between">
+                <div class="col-sm-4">
+                  <mat-form-field appearance="outline">
+                    <mat-select value="all">
+                      <mat-option value="all">All Sales</mat-option>
+                      <mat-option value="today">Today's Sales</mat-option>
+                      <mat-option value="month">This Month's Sales</mat-option>
+                      <mat-option value="year">This Years's Sales</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Watch" #input>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="productsArray" matSort>
+
+
+                  <!-- no Column -->
+                  <ng-container matColumnDef="no">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> No </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                  </ng-container>
+
+                  <!-- product Column -->
+                  <ng-container matColumnDef="productName">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Product </th>
+                    <td mat-cell *matCellDef="let row"> {{row.product}} </td>
+                  </ng-container>
+
+                  <!--customer Column -->
+                  <ng-container matColumnDef="customerName">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Customer </th>
+                    <td mat-cell *matCellDef="let row"> {{row.customer}} </td>
+                  </ng-container>
+
+                  <!--seller price Column -->
+                  <ng-container matColumnDef="sellerName">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Seller </th>
+                    <td mat-cell *matCellDef="let row"> {{row.seller}} </td>
+                  </ng-container>
+
+                  <!--selling price Column -->
+                  <ng-container matColumnDef="sellingPrice">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Selling Price </th>
+                    <td mat-cell *matCellDef="let row"> {{row.sellingPrice}} </td>
+                  </ng-container>
+
+                  <!--price paid Column -->
+                  <ng-container matColumnDef="pricePaid">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Price Paid </th>
+                    <td mat-cell *matCellDef="let row"> {{row.pricePaid}} </td>
+                  </ng-container>
+
+                  <!--quantity Column -->
+                  <ng-container matColumnDef="quantity">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Quantity </th>
+                    <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+                  </ng-container>
+
+                  <!--date Column -->
+                  <ng-container matColumnDef="date">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the search "{{input.value}}"</td>
+                  </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

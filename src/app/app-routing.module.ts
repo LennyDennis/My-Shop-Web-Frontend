@@ -4,6 +4,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
+import { BalancesComponent } from './sales/balances/balances.component';
+import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
+import { MostSoldComponent } from './sales/most-sold/most-sold.component';
 
 
 const routes: Routes = [
@@ -27,6 +30,18 @@ const routes: Routes = [
   {
     path: "products",
     component: ProductsComponent,
+  },
+  {
+    path: "generalSale",
+    component: GeneralSalesComponent,
+  },
+  {
+    path: "balances",
+    component: BalancesComponent,
+  },
+  {
+    path: "mostSold",
+    component: MostSoldComponent,
   }
 ];
 
