@@ -19,6 +19,8 @@ import { BalancesComponent } from './sales/balances/balances.component';
 import { MostSoldComponent } from './sales/most-sold/most-sold.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeDialogComponent } from './dialog-box/employee-dialog/employee-dialog.component';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomerDialogComponent } from './dialog-box/customer-dialog/customer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { EmployeeDialogComponent } from './dialog-box/employee-dialog/employee-d
     BalancesComponent,
     MostSoldComponent,
     EmployeesComponent,
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    CustomersComponent,
+    CustomerDialogComponent
   ],
   imports: [
     BrowserModule,
