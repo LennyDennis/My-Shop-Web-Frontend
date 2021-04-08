@@ -19,7 +19,6 @@ export class ProductDialogComponent implements OnInit {
   category:string;
   categoryId:number;
 
-
   categories: Category[] = [
     {categoryId: 1, categoryName: 'Electronic'},
     {categoryId: 2, categoryName: 'Furniture'},

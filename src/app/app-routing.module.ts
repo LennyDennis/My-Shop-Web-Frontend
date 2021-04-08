@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { BalancesComponent } from './sales/balances/balances.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: "mostSold",
     component: MostSoldComponent,
+  },
+  {
+    path: "employees",
+    component: EmployeesComponent,
   }
 ];
 

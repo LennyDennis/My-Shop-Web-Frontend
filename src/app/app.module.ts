@@ -15,9 +15,10 @@ import { CategoryDialogComponent } from './dialog-box/category-dialog/category-d
 import { ProductDialogComponent } from './dialog-box/product-dialog/product-dialog.component';
 import { ProductsComponent } from './products/products.component';
 import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
-import { GeneralSalesDialogComponent } from './dialog-box/general-sales-dialog/general-sales-dialog.component';
 import { BalancesComponent } from './sales/balances/balances.component';
 import { MostSoldComponent } from './sales/most-sold/most-sold.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeDialogComponent } from './dialog-box/employee-dialog/employee-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,10 @@ import { MostSoldComponent } from './sales/most-sold/most-sold.component';
     ProductDialogComponent,
     ProductsComponent,
     GeneralSalesComponent,
-    GeneralSalesDialogComponent,
     BalancesComponent,
-    MostSoldComponent
+    MostSoldComponent,
+    EmployeesComponent,
+    EmployeeDialogComponent
   ],
   imports: [
     BrowserModule,
