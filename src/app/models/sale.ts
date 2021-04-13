@@ -5,6 +5,7 @@ export interface Sale {
   seller:string;
   sellingPrice:number;
   pricePaid:number;
+  balance:number;
   quantity:number;
   date:string;
 }

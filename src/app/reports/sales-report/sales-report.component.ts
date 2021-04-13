@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -21,28 +20,28 @@ const SALE_DATA: Sale[] = [
 ];
 
 @Component({
-  selector: 'app-general-sales',
-  templateUrl: './general-sales.component.html',
-  styleUrls: ['./general-sales.component.css']
+  selector: 'app-sales-report',
+  templateUrl: './sales-report.component.html',
+  styleUrls: ['./sales-report.component.css']
 })
-export class GeneralSalesComponent implements OnInit {
+export class SalesReportComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayColumns: string[] = ['no', 'productName','customerName','sellerName','sellingPrice', 'pricePaid','quantity','date'];
-  productsArray = new MatTableDataSource(SALE_DATA);
+  displayColumns: string[] = ['no', 'productName','quantity','customerName','sellerName', 'cost','paid','balance','date'];
+  salesReportArray = new MatTableDataSource(SALE_DATA);
 
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
     ngOnInit() {
-      this.productsArray.paginator = this.paginator;
-      this.productsArray.sort = this.sort;
+      this.salesReportArray.paginator = this.paginator;
+      this.salesReportArray.sort = this.sort;
     }
 
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
-      this.productsArray.filter = filterValue.trim().toLowerCase();
+      this.salesReportArray.filter = filterValue.trim().toLowerCase();
     }
 
 }

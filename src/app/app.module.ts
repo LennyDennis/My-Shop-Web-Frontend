@@ -23,6 +23,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerDialogComponent } from './dialog-box/customer-dialog/customer-dialog.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
 import { ProductsReportComponent } from './reports/products-report/products-report.component';
+import { SalesReportComponent } from './reports/sales-report/sales-report.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProductsReportComponent } from './reports/products-report/products-repo
     CustomersComponent,
     CustomerDialogComponent,
     CategoriesReportComponent,
-    ProductsReportComponent
+    ProductsReportComponent,
+    SalesReportComponent
   ],
   imports: [
     BrowserModule,
