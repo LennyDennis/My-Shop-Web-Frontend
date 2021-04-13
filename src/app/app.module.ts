@@ -22,6 +22,7 @@ import { EmployeeDialogComponent } from './dialog-box/employee-dialog/employee-d
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerDialogComponent } from './dialog-box/customer-dialog/customer-dialog.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
+import { ProductsReportComponent } from './reports/products-report/products-report.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CategoriesReportComponent } from './reports/categories-report/categorie
     EmployeeDialogComponent,
     CustomersComponent,
     CustomerDialogComponent,
-    CategoriesReportComponent
+    CategoriesReportComponent,
+    ProductsReportComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@ export interface Product {
   buyingPrice:number;
   sellingPrice:number;
   maxDiscount:number;
+  sold:number;
+  profit:number;
   quantity:number;
   status:string;
 }
