@@ -4,4 +4,5 @@ export interface Employee {
   email:string;
   role:string;
   registeredDate:string;
+  status:string;
 }

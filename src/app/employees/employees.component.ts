@@ -7,16 +7,16 @@ import { Employee } from 'src/app/models/employee';
 import { EmployeeDialogComponent } from '../dialog-box/employee-dialog/employee-dialog.component';
 
 const EMPLOYEE_DATA: Employee[] = [
-  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 2, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 3, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 4, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 5, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 6, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 7, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 8, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 9, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'},
-  {id: 10, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020'}
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
+  {id: 1, name: 'Watch',email:'lennydennis@gmail.com',role:'Admin',registeredDate:'10/10/2020',status:'Active'},
 ];
 
 @Component({

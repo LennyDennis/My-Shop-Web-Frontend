@@ -7,6 +7,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
+import { CustomerReportComponent } from './reports/customer-report/customer-report.component';
+import { EmployeesReportComponent } from './reports/employees-report/employees-report.component';
 import { ProductsReportComponent } from './reports/products-report/products-report.component';
 import { SalesReportComponent } from './reports/sales-report/sales-report.component';
 import { BalancesComponent } from './sales/balances/balances.component';
@@ -67,7 +69,20 @@ const routes: Routes = [
   {
     path: "salesReport",
     component: SalesReportComponent,
+  },
+  {
+    path: "employeesReport",
+    component: EmployeesReportComponent,
+  },
+  {
+    path: "balancesReport",
+    component: SalesReportComponent,
+  },
+  {
+    path: "customersReport",
+    component: CustomerReportComponent,
   }
+
 ];
 
 @NgModule({

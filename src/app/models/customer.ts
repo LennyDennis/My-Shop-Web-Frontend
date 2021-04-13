@@ -3,5 +3,6 @@ export interface Customer {
   name:string;
   phoneNumber:string;
   productsBought:number;
+  totalCashPaid:number;
   registeredDate:string;
 }

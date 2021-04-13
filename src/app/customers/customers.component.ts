@@ -7,16 +7,17 @@ import { Customer } from 'src/app/models/customer';
 import { CustomerDialogComponent } from '../dialog-box/customer-dialog/customer-dialog.component';
 
 const CUSTOMER_DATA: Customer[] = [
-  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 2, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 3, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 4, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 5, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 6, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 7, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 8, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 9, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
-  {id: 10, name: 'Watch',phoneNumber:'0792257242',productsBought:100,registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'},
+  {id: 1, name: 'Watch',phoneNumber:'0792257242',productsBought:100, totalCashPaid:100, registeredDate:'10/10/2020'}
 
 ];
 
