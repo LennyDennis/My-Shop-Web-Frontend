@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { GeneralSalesDialogComponent } from 'src/app/dialog-box/general-sales-dialog/general-sales-dialog.component';
 import { Sale } from 'src/app/models/sale';
 
 const SALE_DATA: Sale[] = [

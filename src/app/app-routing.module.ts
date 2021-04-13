@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
+import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
 import { BalancesComponent } from './sales/balances/balances.component';
 import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
 import { MostSoldComponent } from './sales/most-sold/most-sold.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: "customers",
     component: CustomersComponent,
+  },
+  {
+    path: "categoriesReport",
+    component: CategoriesReportComponent,
   }
 ];
 

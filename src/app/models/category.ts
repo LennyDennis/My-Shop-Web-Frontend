@@ -1,4 +1,6 @@
 export interface Category {
-  categoryId: string;
+  categoryId: number;
   categoryName: string;
+  totalProducts: number;
+  status: string;
 }

@@ -1,0 +1,105 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Categories Report</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+
+            <div class="card-body">
+
+              <div class="row justify-content-md-between">
+
+              </div>
+
+              <div class="row justify-content-md-between">
+
+                <div class="col-sm-4">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Electronics" #input>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-6" style="font-size: 12px">
+                  <mat-form-field appearance="outline" class="mr-2">
+                    <mat-label>From Date</mat-label>
+                    <input matInput placeholder="From Date" #input>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>To Date</mat-label>
+                    <input matInput placeholder="To Date" #input>
+                  </mat-form-field>
+
+                </div>
+
+                <div class="mr-1 align-self-center">
+                  <button mat-raised-button type="button" class="btn btn-default">
+                    PDF
+                  </button>
+
+                  <button mat-raised-button type="button" class="btn btn-default ml-2">
+                    Print
+                  </button>
+                </div>
+              </div>
+
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="categoriesReportArray" matSort>
+
+                  <!-- no Column -->
+                  <ng-container matColumnDef="no">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> No </th>
+                    <td mat-cell *matCellDef="let row"> {{row.categoryId}} </td>
+                  </ng-container>
+
+                  <!-- name Column -->
+                  <ng-container matColumnDef="categoryName">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Category Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.categoryName}} </td>
+                  </ng-container>
+
+                  <!-- total products Column -->
+                  <ng-container matColumnDef="totalProducts">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Total Products </th>
+                    <td mat-cell *matCellDef="let row"> {{row.totalProducts}} </td>
+                  </ng-container>
+
+                  <!-- status Column -->
+                  <ng-container matColumnDef="categoryStatus">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the search "{{input.value}}"</td>
+                  </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

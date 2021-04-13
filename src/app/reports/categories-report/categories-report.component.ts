@@ -3,8 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CategoryDialogComponent } from '../dialog-box/category-dialog/category-dialog.component';
-import { Category } from '../models/category';
+import { Category } from 'src/app/models/category';
 
 const CATEGORY_DATA: Category[] = [
   {categoryId: 1, categoryName: 'Hydrogen', totalProducts: 100, status:"Active"},
@@ -20,65 +19,30 @@ const CATEGORY_DATA: Category[] = [
 
 ];
 
-@Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
-})
 
-export class CategoriesComponent implements OnInit {
+@Component({
+  selector: 'app-categories-report',
+  templateUrl: './categories-report.component.html',
+  styleUrls: ['./categories-report.component.css']
+})
+export class CategoriesReportComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayColumns: string[] = ['no', 'categoryName', 'action'];
-  categoriesArray = new MatTableDataSource(CATEGORY_DATA);
+  displayColumns: string[] = ['no', 'categoryName', 'totalProducts', 'categoryStatus'];
+  categoriesReportArray = new MatTableDataSource(CATEGORY_DATA);
 
   constructor(public dialog: MatDialog) {}
 
     ngOnInit() {
-      this.categoriesArray.paginator = this.paginator;
-      this.categoriesArray.sort = this.sort;
+      this.categoriesReportArray.paginator = this.paginator;
+      this.categoriesReportArray.sort = this.sort;
     }
 
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
-      this.categoriesArray.filter = filterValue.trim().toLowerCase();
+      this.categoriesReportArray.filter = filterValue.trim().toLowerCase();
     }
 
-    openDialog(action, obj) {
-      console.log
-      obj.action = action;
-      const dialogRef = this.dialog.open(CategoryDialogComponent, {
-        width: "500px",
-        data: obj
-      });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result.event == "Add") {
-        this.addRowData(result.data);
-      } else if (result.event == "Edit") {
-        this.updateRowData(result.data);
-      } else if (result.event == "Delete") {
-        this.deleteRowData(result.data);
-      }
-    });
-  }
-
-  addRowData(row_obj) {
-  }
-
-  updateRowData(row_obj) {
-
-  }
-
-  deleteRowData(row_obj) {
-
-  }
-
-  }
-
-
-
-
-
+}

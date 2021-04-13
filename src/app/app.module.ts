@@ -21,6 +21,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeDialogComponent } from './dialog-box/employee-dialog/employee-dialog.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerDialogComponent } from './dialog-box/customer-dialog/customer-dialog.component';
+import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CustomerDialogComponent } from './dialog-box/customer-dialog/customer-d
     EmployeesComponent,
     EmployeeDialogComponent,
     CustomersComponent,
-    CustomerDialogComponent
+    CustomerDialogComponent,
+    CategoriesReportComponent
   ],
   imports: [
     BrowserModule,
