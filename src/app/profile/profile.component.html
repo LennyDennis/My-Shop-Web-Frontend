@@ -40,11 +40,21 @@
                   </div>
                 </div>
 
-                <div class="col-3 mt-3 pr-3">
-                  <button mat-raised-button class="btn float-right" color="primary" (click)="editProfile('Edit', {})">
+                <div class="col-3 mt-3 pr-3" *ngIf="editAction != 'editEmployee'; else elseEditEmployee">
+                  <button mat-raised-button class="btn float-right" color="primary"
+                    (click)="editProfile('AdminEdit', {})">
                     <mat-icon>edit</mat-icon>Edit Profile
                   </button>
                 </div>
+
+                <ng-template #elseEditEmployee>
+                  <div class="col-3 mt-3 pr-3">
+                    <button mat-raised-button class="btn float-right" color="primary"
+                      (click)="editProfile('EmployeeEdit', {})">
+                      <mat-icon>edit</mat-icon>Edit Profile
+                    </button>
+                  </div>
+                </ng-template>
               </div>
             </div>
           </div>

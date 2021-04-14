@@ -29,6 +29,7 @@ import { BalancesReportComponent } from './reports/balances-report/balances-repo
 import { CustomerReportComponent } from './reports/customer-report/customer-report.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileDialogComponent } from './dialog-box/profile-dialog/profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ProfileComponent } from './profile/profile.component';
     BalancesReportComponent,
     CustomerReportComponent,
     NotificationsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileDialogComponent
   ],
   imports: [
     BrowserModule,
