@@ -1,0 +1,50 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Out of Stock Notification</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+
+              <ul class="notification px-1">
+                <li *ngFor="let product of (notificationsArray.data| slice: lowValue : highValue); let i = index">
+                  <div class="mat-elevation-z5 py-3 px-4 mb-3 rounded-lg d-flex justify-content-md-between">
+                    <div class="index align-self-center ml-3">{{product.id}}</div>
+                    <div><span class="header">Product:</span><br>{{product.name}}</div>
+                    <div><span class="header">Category:</span><br>{{product.category}}</div>
+                    <div><span class="header">Remaining:</span><br>{{product.quantity}}</div>
+                    <div>
+                      <button mat-raised-button class="btn btn-success">
+                        Restock
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                (page)="getPaginatorData($event)" showFirstLastButtons>
+              </mat-paginator>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

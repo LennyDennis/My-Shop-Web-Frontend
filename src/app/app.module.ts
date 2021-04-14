@@ -27,6 +27,7 @@ import { SalesReportComponent } from './reports/sales-report/sales-report.compon
 import { EmployeesReportComponent } from './reports/employees-report/employees-report.component';
 import { BalancesReportComponent } from './reports/balances-report/balances-report.component';
 import { CustomerReportComponent } from './reports/customer-report/customer-report.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CustomerReportComponent } from './reports/customer-report/customer-repo
     SalesReportComponent,
     EmployeesReportComponent,
     BalancesReportComponent,
-    CustomerReportComponent
+    CustomerReportComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

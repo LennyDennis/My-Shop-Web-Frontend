@@ -5,6 +5,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
 import { CustomerReportComponent } from './reports/customer-report/customer-report.component';
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: "customersReport",
     component: CustomerReportComponent,
+  },
+  {
+    path: "outOfStockNotication",
+    component: NotificationsComponent,
   }
 
 ];

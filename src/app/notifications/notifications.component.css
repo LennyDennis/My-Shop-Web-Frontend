@@ -1,0 +1,16 @@
+.notification {
+  list-style-type: none;
+  font-size: 16px;
+}
+.header {
+  font-weight: bold;
+}
+.index {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  background-color: #185ca5;
+}
