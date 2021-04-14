@@ -1,0 +1,56 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Profile</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-4 d-flex">
+                  <img src="../../assets/user.svg" alt="User Avatar" class="userImage mx-auto">
+                </div>
+                <div class="col-5 mt-3">
+                  <div>
+                    <div class="row my-3">
+                      <div class="col-lg-3 col-md-3 col-sm-6 title">Name:</div>
+                      <div class="col-lg-9 col-md-9 col-sm-6">Lenny</div>
+                    </div>
+                    <div class="row my-3">
+                      <div class="col-lg-3 col-md-3 col-sm-6 title">Email:</div>
+                      <div class="col-lg-9 col-md-9 col-sm-6">Lenny</div>
+                    </div>
+                    <div class="row my-3">
+                      <div class="col-lg-3 col-md-3 col-sm-6 title">Role:</div>
+                      <div class="col-lg-9 col-md-9 col-sm-6">Lenny</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-3 mt-3 pr-3">
+                  <button mat-raised-button class="btn float-right" color="primary" (click)="editProfile('Edit', {})">
+                    <mat-icon>edit</mat-icon>Edit Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

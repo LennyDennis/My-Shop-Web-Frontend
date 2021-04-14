@@ -7,6 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProductsComponent } from './products/products.component';
+import { ProfileComponent } from './profile/profile.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
 import { CustomerReportComponent } from './reports/customer-report/customer-report.component';
 import { EmployeesReportComponent } from './reports/employees-report/employees-report.component';
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: "outOfStockNotication",
     component: NotificationsComponent,
+  },
+  {
+    path: "profile",
+    component: ProfileComponent,
   }
 
 ];
