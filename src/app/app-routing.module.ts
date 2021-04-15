@@ -17,6 +17,7 @@ import { SalesReportComponent } from './reports/sales-report/sales-report.compon
 import { BalancesComponent } from './sales/balances/balances.component';
 import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
 import { MostSoldComponent } from './sales/most-sold/most-sold.component';
+import { SellComponent } from './sell/sell.component';
 
 
 const routes: Routes = [
@@ -96,6 +97,10 @@ const routes: Routes = [
   {
     path: "myDashBoard",
     component: MyDashboardComponent,
+  },
+  {
+    path: "sell",
+    component: SellComponent,
   }
 
 ];

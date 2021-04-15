@@ -31,6 +31,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDialogComponent } from './dialog-box/profile-dialog/profile-dialog.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { SellComponent } from './sell/sell.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     NotificationsComponent,
     ProfileComponent,
     ProfileDialogComponent,
-    MyDashboardComponent
+    MyDashboardComponent,
+    SellComponent
   ],
   imports: [
     BrowserModule,
