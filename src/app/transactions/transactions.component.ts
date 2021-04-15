@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
 
-  constructor() { }
+  user:string;
+
+  constructor(
+  ) {
+    this.user = "myDashboard";
+  }
 
   ngOnInit(): void {
   }

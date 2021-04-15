@@ -30,6 +30,7 @@ import { CustomerReportComponent } from './reports/customer-report/customer-repo
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDialogComponent } from './dialog-box/profile-dialog/profile-dialog.component';
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ProfileDialogComponent } from './dialog-box/profile-dialog/profile-dial
     CustomerReportComponent,
     NotificationsComponent,
     ProfileComponent,
-    ProfileDialogComponent
+    ProfileDialogComponent,
+    MyDashboardComponent
   ],
   imports: [
     BrowserModule,

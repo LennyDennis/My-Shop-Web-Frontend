@@ -5,6 +5,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
+  },
+  {
+    path: "myDashBoard",
+    component: MyDashboardComponent,
   }
 
 ];
