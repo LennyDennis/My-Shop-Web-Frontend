@@ -4,86 +4,82 @@
   </div>
   <div class="card-body">
     <div class="row" *ngIf="user != 'myDashboard'; else elseMyDashboard">
-      <div class="col-lg-3 col-6">
-        <div class="small-box card-info card-outline">
-          <div class="inner">
-            <h3>150</h3>
-            <p>Products</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-pricetags"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="small-box card-success card-outline">
-          <div class="inner">
-            <h3>53</h3>
-            <p>Sales</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-bag"></i>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3 elevation-4">
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
+          <div class="info-box-content">
+            <h2><span class="info-box-number">2,000</span></h2>
+            <span class="info-box-text">Products</span>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-6">
-        <div class="small-box card-warning card-outline">
-          <div class="inner">
-            <h3>44</h3>
-            <p>Sales Profits</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-6">
-        <div class="small-box card-danger card-outline">
-          <div class="inner">
-            <h3>65</h3>
-            <p>Customers</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-person"></i>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3 elevation-4">
+          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+          <div class="info-box-content">
+            <h2><span class="info-box-number">2,000</span></h2>
+            <span class="info-box-text">Sales</span>
           </div>
         </div>
       </div>
+
+      <div class="clearfix hidden-md-up"></div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3 elevation-4">
+          <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-signal"></i></span>
+          <div class="info-box-content">
+            <h2><span class="info-box-number">2,000</span></h2>
+            <span class="info-box-text">Sales Profits</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-3 ">
+        <div class="info-box mb-3 elevation-4">
+          <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+          <div class="info-box-content">
+            <h2><span class="info-box-number">2,000</span></h2>
+            <span class="info-box-text">Customers</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <ng-template #elseMyDashboard>
       <div class="row">
-        <div class="col-lg-4 col-4">
-          <div class="small-box card-info card-outline">
-            <div class="inner">
-              <h3>150</h3>
-              <p>Products</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pricetags"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-4">
-          <div class="small-box card-success card-outline">
-            <div class="inner">
-              <h3>53</h3>
-              <p>Sales</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box mb-3 elevation-4">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
+            <div class="info-box-content">
+              <h2><span class="info-box-number">2,000</span></h2>
+              <span class="info-box-text">Products</span>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-4">
-          <div class="small-box card-danger card-outline">
-            <div class="inner">
-              <h3>65</h3>
-              <p>Customers</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person"></i>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box mb-3 elevation-4 hover-shadow ">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+            <div class="info-box-content">
+              <h2><span class="info-box-number">2,000</span></h2>
+              <span class="info-box-text">Sales</span>
             </div>
           </div>
         </div>
+
+        <div class="col-12 col-sm-6 col-md-4 ">
+          <div class="info-box mb-3 elevation-4">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+            <div class="info-box-content">
+              <h2><span class="info-box-number">2,000</span></h2>
+              <span class="info-box-text">Customers</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </ng-template>
   </div>
