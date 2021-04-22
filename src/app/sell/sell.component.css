@@ -6,7 +6,7 @@
   list-style-type: none;
   font-size: 16px;
 }
-h3 {
+.category-header {
   font-size: 24px;
 }
 .button-end {
@@ -14,4 +14,13 @@ h3 {
   top: 24px;
   right: 20px;
   bottom: 24px;
+}
+.category-card {
+  transition: 0.35s ease-in-out;
+}
+.category-card:hover {
+  box-shadow: 0 8px 8px 8px rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.14),
+    0 8px 8px 0 rgba(0, 0, 0, 0.12) !important;
+  background-color: #e6dfdf;
+  overflow: hidden;
 }
