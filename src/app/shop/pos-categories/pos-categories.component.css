@@ -1,0 +1,46 @@
+.mat-form-field {
+  font-size: 12px;
+  width: 100%;
+}
+::ng-deep
+  mat-form-field.mat-form-field-appearance-outline
+  .mat-form-field-wrapper {
+  margin: 0;
+  padding-top: 6px;
+  /* margin-top: 10px; */
+  padding-bottom: 6px;
+}
+.categories {
+  list-style-type: none;
+  font-size: 16px;
+}
+.category-header {
+  font-size: 24px;
+}
+.button-end {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  bottom: 24px;
+}
+.category-card {
+  transition: 0.35s ease-in-out;
+}
+.category-card:hover {
+  box-shadow: 0 8px 8px 8px rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.14),
+    0 8px 8px 0 rgba(0, 0, 0, 0.12) !important;
+  background-color: #e6dfdf;
+  overflow: hidden;
+}
+h3 {
+  margin: 0;
+}
+h2 {
+  margin: 0;
+}
+.button-end {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  bottom: 24px;
+}

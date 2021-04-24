@@ -31,7 +31,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDialogComponent } from './dialog-box/profile-dialog/profile-dialog.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
-import { SellComponent } from './sell/sell.component';
+import { PosProductsComponent } from './shop/pos-products/pos-products.component';
+import { PosCategoriesComponent } from './shop/pos-categories/pos-categories.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SellComponent } from './sell/sell.component';
     ProfileComponent,
     ProfileDialogComponent,
     MyDashboardComponent,
-    SellComponent
+    PosCategoriesComponent,
+    PosProductsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../models/category';
+import { Category } from '../../models/category';
 
 const CATEGORY_DATA: Category[] = [
   {categoryId: 1, categoryName: 'Hydrogen 1', totalProducts: 100, status:"Active"},
@@ -15,11 +15,11 @@ const CATEGORY_DATA: Category[] = [
 ];
 
 @Component({
-  selector: 'app-sell',
-  templateUrl: './sell.component.html',
-  styleUrls: ['./sell.component.css']
+  selector: 'app-pos-categories',
+  templateUrl: './pos-categories.component.html',
+  styleUrls: ['./pos-categories.component.css']
 })
-export class SellComponent implements OnInit {
+export class PosCategoriesComponent implements OnInit {
 
   categoriesArray = CATEGORY_DATA;
 

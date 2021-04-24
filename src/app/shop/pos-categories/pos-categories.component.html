@@ -2,9 +2,14 @@
 
   <div class="content-header">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-sm-6">
           <h1 class="m-0">Point of Sell</h1>
+        </div>
+        <div class="float-right">
+          <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>New Customer
+          </button>
         </div>
       </div>
     </div>
@@ -12,7 +17,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-8 col-md-8 col-sm-8">
 
         <section class="content">
 
@@ -20,7 +25,7 @@
             <div class="card-header">
               <h2 class="card-title category-header">Categories</h2>
               <div class="card-tools">
-                <div class="input-group" style="width: 250px;">
+                <div class="input-group" style="width: auto;">
                   <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
                   <div class="input-group-append">
                     <button type="submit" class="btn btn-default">
@@ -52,13 +57,34 @@
             </div>
           </div>
         </section>
-
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="card">
+
+          <div class="card-header">
+            <div class="card-title icheck-primary">
+              <input type="checkbox" value="" id="check1">
+              <label for="check1"></label>
+            </div>
+            <div class="card-tools">
+              <div class="input-group" style="width: auto;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+                <!-- <mat-form-field appearance="outline">
+                  <mat-label>Search</mat-label>
+                  <input matInput placeholder="Ex. John Doe" #input>
+                </mat-form-field> -->
+              </div>
+            </div>
+          </div>
           <div class="card-body">
 
           </div>
+
         </div>
       </div>
     </div>
