@@ -40,16 +40,27 @@ export class PosHomeComponent implements OnInit {
 
   categoriesArray = CATEGORY_DATA;
   productsArray = PRODUCT_DATA;
+  hideItem=[]
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showDiv = {
-    previous : false,
-    current : false,
-    next : false
+  // showItemDetails = {
+  //   hideItem : false
+  // }
+
+  // showItemDetails(){
+  //   this.hideItem = false
+  //   return this.hideItem;
+  // }
+
+  onClick(item) {
+    Object.keys(this.hideItem).forEach(cartItem => {
+      this.hideItem[cartItem] = false;
+    });
+    this.hideItem[item.id] = true;
   }
 
 }

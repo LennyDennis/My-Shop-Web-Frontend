@@ -55,10 +55,10 @@
                       <div class="d-flex justify-content-md-between">
                         <div>
                           <span class="item_no mr-3">
-                            <i class="left fas fa-angle-right fa-lg" (click)="showDiv.previous = !showDiv.previous;"
-                              *ngIf="!showDiv.previous"></i>
-                            <i class="left fas fa-angle-down fa-lg" (click)="showDiv.previous = !showDiv.previous;"
-                              *ngIf="showDiv.previous"></i>
+                            <i class="left fas fa-angle-right fa-lg" (click)="hideItem[i] = !hideItem[i]"
+                              [hidden]="hideItem[i]"></i>
+                            <i class="left fas fa-angle-down fa-lg" (click)="hideItem[i] = !hideItem[i]"
+                              [hidden]="!hideItem[i]"></i>
                           </span>
                           <span class="item_no mr-2">2 </span>
                           {{product.name}}
@@ -71,7 +71,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-12" *ngIf="showDiv.previous">
+                    <div class="col-lg-12" [hidden]="!hideItem[i]">
                       <div class="row pt-1">
                         <div class="d-flex justify-content-md-between">
                           <div class="col-lg-4">
