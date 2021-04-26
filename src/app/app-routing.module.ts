@@ -7,6 +7,9 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { PosCategoriesComponent } from './pos/pos-categories/pos-categories.component';
+import { PosHomeComponent } from './pos/pos-home/pos-home.component';
+import { PosProductsComponent } from './pos/pos-products/pos-products.component';
 import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CategoriesReportComponent } from './reports/categories-report/categories-report.component';
@@ -17,9 +20,6 @@ import { SalesReportComponent } from './reports/sales-report/sales-report.compon
 import { BalancesComponent } from './sales/balances/balances.component';
 import { GeneralSalesComponent } from './sales/general-sales/general-sales.component';
 import { MostSoldComponent } from './sales/most-sold/most-sold.component';
-import { PosCategoriesComponent } from './shop/pos-categories/pos-categories.component';
-import { PosProductsComponent } from './shop/pos-products/pos-products.component';
-
 
 const routes: Routes = [
   {
@@ -100,9 +100,12 @@ const routes: Routes = [
     component: MyDashboardComponent,
   },
   {
+    path: "posHome",
+    component: PosHomeComponent,
+},
+  {
     path: "posCategories",
     component: PosCategoriesComponent,
-    // component: PosProductsComponent,
 },
 {
   path: "posProducts",
