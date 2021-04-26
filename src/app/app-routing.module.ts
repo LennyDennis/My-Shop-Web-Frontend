@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { PosCategoriesComponent } from './pos/pos-categories/pos-categories.component';
+import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component';
 import { PosHomeComponent } from './pos/pos-home/pos-home.component';
 import { PosProductsComponent } from './pos/pos-products/pos-products.component';
 import { ProductsComponent } from './products/products.component';
@@ -101,7 +102,7 @@ const routes: Routes = [
   },
   {
     path: "posHome",
-    component: PosHomeComponent,
+    component: PosCheckoutComponent,
 },
   {
     path: "posCategories",

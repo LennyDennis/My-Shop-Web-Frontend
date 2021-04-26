@@ -34,6 +34,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { PosCategoriesComponent } from './pos/pos-categories/pos-categories.component';
 import { PosProductsComponent } from './pos/pos-products/pos-products.component';
 import { PosHomeComponent } from './pos/pos-home/pos-home.component';
+import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { PosHomeComponent } from './pos/pos-home/pos-home.component';
     PosCategoriesComponent,
     PosProductsComponent,
     PosHomeComponent,
+    PosCheckoutComponent,
     ],
   imports: [
     BrowserModule,
