@@ -44,3 +44,19 @@ h2 {
   right: 20px;
   bottom: 24px;
 }
+.cart {
+  padding: 5px 10px 10px 10px;
+}
+.cart-item {
+  border-bottom: 2px solid #cfcfcf;
+  padding-bottom: 8px;
+}
+.cart-input {
+  height: 26px;
+}
+.cart-input-header {
+  font-size: 12px;
+  font-weight: bold;
+}
+.item_no {
+}

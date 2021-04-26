@@ -65,7 +65,7 @@ import { PosCategoriesComponent } from './shop/pos-categories/pos-categories.com
     MyDashboardComponent,
     PosCategoriesComponent,
     PosProductsComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

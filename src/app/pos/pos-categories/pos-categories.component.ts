@@ -28,4 +28,10 @@ export class PosCategoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showDiv = {
+    previous : false,
+    current : false,
+    next : false
+  }
+
 }
