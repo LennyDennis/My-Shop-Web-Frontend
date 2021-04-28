@@ -11,3 +11,32 @@
   color: white;
   background-color: #185ca5;
 }
+.payment-btn {
+  width: 100%;
+}
+.balance {
+  font-size: 18px;
+}
+.payment-section {
+  height: 440px;
+}
+.sale-section {
+  max-height: 440px;
+}
+.sale-body-section {
+  overflow: auto;
+}
+.customer-btn {
+  height: auto;
+  width: auto;
+}
+.mat-form-field {
+  font-size: 12px;
+  width: 100%;
+}
+::ng-deep
+  mat-form-field.mat-form-field-appearance-outline
+  .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}
