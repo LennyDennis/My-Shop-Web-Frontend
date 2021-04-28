@@ -102,7 +102,8 @@ const routes: Routes = [
   },
   {
     path: "posHome",
-    component: PosCheckoutComponent,
+    component: PosHomeComponent
+    // component: PosCheckoutComponent,
 },
   {
     path: "posCategories",

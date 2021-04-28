@@ -45,8 +45,10 @@ h2 {
   bottom: 24px;
 }
 .cart {
+  max-height: 500px;
+}
+.cart-body {
   padding: 5px 10px 10px 10px;
-  max-height: 320px;
   overflow: auto;
 }
 .cart-item {
@@ -70,4 +72,8 @@ h2 {
 }
 .delete-button {
   color: #d9534f;
+}
+.info-section {
+  max-height: 500px;
+  background-color: blue;
 }
