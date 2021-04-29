@@ -1,0 +1,42 @@
+.cart-item {
+  border-bottom: 1px solid #cfcfcf;
+  padding: 5px 10px 5px 10px;
+}
+.name {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10%;
+  text-align: center;
+  color: white;
+  background-color: #185ca5;
+}
+.payment-btn {
+  width: 100%;
+}
+.balance {
+  font-size: 18px;
+}
+.payment-section {
+  height: 440px;
+}
+.sale-section {
+  max-height: 440px;
+}
+.sale-body-section {
+  overflow: auto;
+}
+.customer-btn {
+  height: auto;
+  width: auto;
+}
+.mat-form-field {
+  font-size: 12px;
+  width: 100%;
+}
+::ng-deep
+  mat-form-field.mat-form-field-appearance-outline
+  .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}
