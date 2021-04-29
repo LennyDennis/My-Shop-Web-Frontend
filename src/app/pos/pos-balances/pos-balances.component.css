@@ -1,0 +1,26 @@
+.notification {
+  list-style-type: none;
+  font-size: 16px;
+}
+.header {
+  font-weight: bold;
+}
+.index {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  background-color: #185ca5;
+}
+.mat-form-field {
+  font-size: 12px;
+  width: 60%;
+}
+::ng-deep
+  mat-form-field.mat-form-field-appearance-outline
+  .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}

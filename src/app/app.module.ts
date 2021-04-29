@@ -35,6 +35,8 @@ import { PosCategoriesComponent } from './pos/pos-categories/pos-categories.comp
 import { PosProductsComponent } from './pos/pos-products/pos-products.component';
 import { PosHomeComponent } from './pos/pos-home/pos-home.component';
 import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component';
+import { PosBalancesComponent } from './pos/pos-balances/pos-balances.component';
+import { PosBalancePaymentComponent } from './pos/pos-balance-payment/pos-balance-payment.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component'
     PosProductsComponent,
     PosHomeComponent,
     PosCheckoutComponent,
+    PosBalancesComponent,
+    PosBalancePaymentComponent,
     ],
   imports: [
     BrowserModule,

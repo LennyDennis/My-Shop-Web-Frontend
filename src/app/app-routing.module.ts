@@ -7,6 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { PosBalancesComponent } from './pos/pos-balances/pos-balances.component';
 import { PosCategoriesComponent } from './pos/pos-categories/pos-categories.component';
 import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component';
 import { PosHomeComponent } from './pos/pos-home/pos-home.component';
@@ -112,7 +113,12 @@ const routes: Routes = [
 {
   path: "posProducts",
   component: PosProductsComponent,
+},
+{
+  path: "posBalances",
+  component: PosBalancesComponent,
 }
+
 
 ];
 
