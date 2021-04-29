@@ -37,6 +37,7 @@ import { PosHomeComponent } from './pos/pos-home/pos-home.component';
 import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component';
 import { PosBalancesComponent } from './pos/pos-balances/pos-balances.component';
 import { PosBalancePaymentComponent } from './pos/pos-balance-payment/pos-balance-payment.component';
+import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { PosBalancePaymentComponent } from './pos/pos-balance-payment/pos-balanc
     PosCheckoutComponent,
     PosBalancesComponent,
     PosBalancePaymentComponent,
+    OutOfStockComponent,
     ],
   imports: [
     BrowserModule,
