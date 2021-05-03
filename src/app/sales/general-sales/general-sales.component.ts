@@ -30,7 +30,7 @@ export class GeneralSalesComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayColumns: string[] = ['no', 'productName','customerName','sellerName','sellingPrice', 'total','quantity','date'];
+  displayColumns: string[] = ['no', 'productName','customerName','phoneNumber','sellerName','sellingPrice','quantity','total','date'];
   productsArray = new MatTableDataSource(SALE_DATA);
 
   constructor(public dialog: MatDialog) {}
