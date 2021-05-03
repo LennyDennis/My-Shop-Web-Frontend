@@ -5,18 +5,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Sale } from 'src/app/models/sale';
 
 const SALE_DATA: Sale[] = [
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
-  {id: 1, product: 'Watch',customer:'Lenny Dennis',seller:'Macharia Dennis',sellingPrice:200,pricePaid:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
+  {id: 1, product: 'Watch',customer:'Lenny Dennis', phoneNumber: '07343434344',seller:'Macharia Dennis',sellingPrice:200,total:50,balance:200,quantity:1,date:'10/10/2021'},
 ];
 
 @Component({
@@ -29,7 +29,7 @@ export class SalesReportComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayColumns: string[] = ['no', 'productName','quantity','customerName','sellerName', 'cost','paid','balance','date'];
+  displayColumns: string[] = ['no', 'productName','customerName','phoneNumber','sellerName', 'sellingPrice','quantity','total','date'];
   salesReportArray = new MatTableDataSource(SALE_DATA);
 
   constructor() {}

@@ -72,40 +72,40 @@
                     <td mat-cell *matCellDef="let row"> {{row.product}} </td>
                   </ng-container>
 
-                  <!-- quantity Column -->
-                  <ng-container matColumnDef="quantity">
-                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Quantity </th>
-                    <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
-                  </ng-container>
-
                   <!-- customer Column -->
                   <ng-container matColumnDef="customerName">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Customer </th>
                     <td mat-cell *matCellDef="let row"> {{row.customer}} </td>
                   </ng-container>
 
-                  <!-- seller name Column -->
+                  <!-- phone number Column -->
+                  <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Phone </th>
+                    <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
+                  </ng-container>
+
+                  <!-- Seller Name Column -->
                   <ng-container matColumnDef="sellerName">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Seller </th>
                     <td mat-cell *matCellDef="let row"> {{row.seller}} </td>
                   </ng-container>
 
-                  <!-- Cost Column -->
-                  <ng-container matColumnDef="cost">
-                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Cost </th>
+                  <!-- Selling Price Column -->
+                  <ng-container matColumnDef="sellingPrice">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Selling Price </th>
                     <td mat-cell *matCellDef="let row"> {{row.sellingPrice}} </td>
                   </ng-container>
 
-                  <!-- Paid Column -->
-                  <ng-container matColumnDef="paid">
-                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Paid </th>
-                    <td mat-cell *matCellDef="let row"> {{row.pricePaid}} </td>
+                  <!-- quantity Column -->
+                  <ng-container matColumnDef="quantity">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Quantity </th>
+                    <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
                   </ng-container>
 
-                  <!-- Balance Column -->
-                  <ng-container matColumnDef="balance">
-                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Balance </th>
-                    <td mat-cell *matCellDef="let row"> {{row.balance}} </td>
+                  <!-- Total Column -->
+                  <ng-container matColumnDef="total">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Total </th>
+                    <td mat-cell *matCellDef="let row"> {{row.total}} </td>
                   </ng-container>
 
                   <!-- Date Column -->

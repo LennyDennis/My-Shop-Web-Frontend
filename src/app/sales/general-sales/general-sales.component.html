@@ -59,6 +59,12 @@
                     <td mat-cell *matCellDef="let row"> {{row.customer}} </td>
                   </ng-container>
 
+                  <!--customer Column -->
+                  <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Phone Number </th>
+                    <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+                  </ng-container>
+
                   <!--seller price Column -->
                   <ng-container matColumnDef="sellerName">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Seller </th>
@@ -71,16 +77,16 @@
                     <td mat-cell *matCellDef="let row"> {{row.sellingPrice}} </td>
                   </ng-container>
 
-                  <!--price paid Column -->
-                  <ng-container matColumnDef="pricePaid">
-                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Price Paid </th>
-                    <td mat-cell *matCellDef="let row"> {{row.pricePaid}} </td>
-                  </ng-container>
-
                   <!--quantity Column -->
                   <ng-container matColumnDef="quantity">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Quantity </th>
                     <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+                  </ng-container>
+
+                  <!--price paid Column -->
+                  <ng-container matColumnDef="total">
+                    <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Total </th>
+                    <td mat-cell *matCellDef="let row"> {{row.total}} </td>
                   </ng-container>
 
                   <!--date Column -->
