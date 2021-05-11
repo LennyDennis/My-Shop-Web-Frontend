@@ -6,16 +6,16 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Balance } from 'src/app/models/balance';
 
 const BALANCE_DATA: Balance[] = [
-  {id: 1,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 2,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 3,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 4,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 5,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 6,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 7,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 8,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 9,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'},
-  {id: 10,customer:'Lenny Dennis',product: 'Watch',quantity:2,totalCost:500,paid:100,balance:400,lastPaid:'10/10/2021'}
+  {id: 1,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 2,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 3,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 4,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 5,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 6,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 7,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 8,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 9,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'},
+  {id: 10,customer:'Lenny Dennis',phoneNumber:'0700000000',total:500,paid:100,balance:400,lastPaid:'10/10/2021',sellDate:'10/10/2021'}
 ];
 
 @Component({
@@ -28,7 +28,7 @@ export class BalancesComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  displayColumns: string[] = ['no', 'customerName', 'productName','quantity','totalCost','paid', 'balance','lastPaid'];
+  displayColumns: string[] = ['no', 'customerName', 'phoneNumber','total','paid', 'balance','lastPaid','sellDate'];
   balancesArray = new MatTableDataSource(BALANCE_DATA);
 
   constructor(public dialog: MatDialog) {}

@@ -1,10 +1,10 @@
 export interface Balance {
   id:number;
   customer:string;
-  product:string;
-  quantity:number;
-  totalCost:number;
+  phoneNumber:string;
+  total:number;
   paid:number;
   balance:number;
   lastPaid:string;
+  sellDate:string;
 }
