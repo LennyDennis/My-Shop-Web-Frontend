@@ -38,6 +38,11 @@ import { PosCheckoutComponent } from './pos/pos-checkout/pos-checkout.component'
 import { PosBalancesComponent } from './pos/pos-balances/pos-balances.component';
 import { PosBalancePaymentComponent } from './pos/pos-balance-payment/pos-balance-payment.component';
 import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { ProductService } from './services/product-service/product.service';
+import { NotificationService } from './services/notification-service/notification.service';
+import { CategoryService } from './services/category-service/category.service';
 
 @NgModule({
   declarations: [
@@ -75,15 +80,17 @@ import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
     PosBalancesComponent,
     PosBalancePaymentComponent,
     OutOfStockComponent,
-    ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProductService, NotificationService, CategoryService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
