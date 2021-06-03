@@ -82,21 +82,22 @@ export class ProductsComponent implements OnInit {
   addProduct(productData) {
     let productDetails = {
       name: productData.productName,
-      category: productData.categoryName,
+      category: productData.categoryId,
       buyingPrice: productData.buyingPrice,
       sellingPrice: productData.sellingPrice,
       maxDiscount: productData.maxDiscount,
     };
 
+    console.log(productDetails);
+
     this._productService.addProduct(productDetails).subscribe(
       (res) => {
         this._productNotification.showSuccess('Product added successfully!');
+        this.ngOnInit();
       },
       (err) => {
         console.log(err);
-        this._productNotification.showError(
-          'Oops! Unsuccessful. Please try again.'
-        );
+        this._productNotification.showError(err.error);
       }
     );
   }

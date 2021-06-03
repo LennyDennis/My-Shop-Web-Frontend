@@ -11,12 +11,12 @@
 <div mat-dialog-content>
   <div *ngIf="action != 'Delete' && action != 'Add Stock'; else elseTemplate">
     <mat-form-field class="full-width">
-      <input placeholder="Name:" matInput [(ngModel)]="product_data.name">
+      <input placeholder="Name:" matInput [(ngModel)]="product_data.productName">
     </mat-form-field>
 
     <mat-form-field *ngIf="action != 'Edit'; else elseEdit" class="full-width">
       <mat-label>Category</mat-label>
-      <mat-select>
+      <mat-select [(value)]="categoryId" [(ngModel)]="product_data.categoryId">
         <mat-option *ngFor="let category of categories" [value]="category.categoryId">
           {{category.categoryName}}
         </mat-option>
@@ -46,9 +46,11 @@
       <input placeholder="Max Discount:" matInput [(ngModel)]="product_data.maxDiscount">
     </mat-form-field>
 
-    <button *ngIf="product_data.status == 'Active'; else elseDeactivate" mat-button class="btn btn-danger full-width">
-      De-activate Product
-    </button>
+    <div mat-dialog-title *ngIf="action != 'Add';">
+      <button *ngIf="product_data.status == 'Active'; else elseDeactivate" mat-button class="btn btn-danger full-width">
+        De-activate Product
+      </button>
+    </div>
 
     <ng-template #elseDeactivate>
       <button mat-button class="btn btn-success full-width">Activate Product</button>
