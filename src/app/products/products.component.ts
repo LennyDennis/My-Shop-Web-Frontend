@@ -8,165 +8,6 @@ import { ProductDialogComponent } from '../dialog-box/product-dialog/product-dia
 import { NotificationService } from '../services/notification-service/notification.service';
 import { ProductService } from '../services/product-service/product.service';
 
-const PRODUCT_DATA: Product[] = [
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-  {
-    id: 1,
-    name: 'Watch',
-    category: 'Electronic',
-    buyingPrice: 100,
-    sellingPrice: 200,
-    maxDiscount: 50,
-    sold: 10,
-    profit: 1000,
-    quantity: 1,
-    status: 'Active',
-  },
-];
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -187,7 +28,9 @@ export class ProductsComponent implements OnInit {
     'status',
     'action',
   ];
-  productsArray = new MatTableDataSource(PRODUCT_DATA);
+  products = new MatTableDataSource();
+  //active
+  activationStatus = 1;
 
   constructor(
     public dialog: MatDialog,
@@ -196,13 +39,23 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productsArray.paginator = this.paginator;
-    this.productsArray.sort = this.sort;
+    this.getAllProducts();
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.productsArray.filter = filterValue.trim().toLowerCase();
+    this.products.filter = filterValue.trim().toLowerCase();
+  }
+
+  getAllProducts() {
+    this._productService.getAllProducts().subscribe(
+      (res) => {
+        this.products = new MatTableDataSource((<any>res).products);
+        this.products.paginator = this.paginator;
+        this.products.sort = this.sort;
+      },
+      (err) => {}
+    );
   }
 
   openDialog(action, obj) {

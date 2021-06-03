@@ -36,12 +36,14 @@
               </div>
 
               <div class="mat-elevation-z8">
-                <table mat-table [dataSource]="productsArray" matSort>
+                <table mat-table [dataSource]="products" matSort>
 
                   <!-- no Column -->
                   <ng-container matColumnDef="no">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> No </th>
-                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    <td mat-cell *matCellDef="let row; index as i;">
+                      {{1+i + (paginator.pageIndex * paginator.pageSize)}}
+                    </td>
                   </ng-container>
 
                   <!-- name Column -->
@@ -77,13 +79,18 @@
                   <!--max discount Column -->
                   <ng-container matColumnDef="quantity">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Quantity </th>
-                    <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+                    <td mat-cell *matCellDef="let row"> {{row.stockQuantity}} </td>
                   </ng-container>
 
                   <!--max discount Column -->
                   <ng-container matColumnDef="status">
                     <th mat-header-cell class="h6" *matHeaderCellDef mat-sort-header> Status </th>
-                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                    <ng-container *matCellDef="let row">
+                      <td class="text-success" mat-cell *ngIf="(row.activationStatus==1); else notActive">Active</td>
+                      <ng-template #notActive>
+                        <td class="text-warning" mat-cell> De-Activated </td>
+                      </ng-template>
+                    </ng-container>
                   </ng-container>
 
                   <!-- action Column -->
