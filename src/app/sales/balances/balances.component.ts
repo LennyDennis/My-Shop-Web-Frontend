@@ -1,8 +1,10 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Balance } from 'src/app/models/balance';
 import { SalesService } from 'src/app/services/sales/sales.service';
 
@@ -14,6 +16,8 @@ import { SalesService } from 'src/app/services/sales/sales.service';
 export class BalancesComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  returnUrl: string;
 
   displayColumns: string[] = [
     'no',
@@ -28,7 +32,12 @@ export class BalancesComponent implements OnInit {
 
   balances = new MatTableDataSource();
 
-  constructor(public dialog: MatDialog, private _salesService: SalesService) {}
+  constructor(
+    public dialog: MatDialog,
+    private _salesService: SalesService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getBalances();
@@ -53,9 +62,5 @@ export class BalancesComponent implements OnInit {
       },
       (err) => {}
     );
-  }
-
-  openBalanceDetail(obj) {
-    let balanceId = obj.id;
   }
 }

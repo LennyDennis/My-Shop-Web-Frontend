@@ -27,111 +27,111 @@ import { MostSoldComponent } from './sales/most-sold/most-sold.component';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "/dashboard",
-    pathMatch: "full",
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
   },
   {
-    path: "login",
+    path: 'login',
     component: LoginComponent,
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     component: DashboardComponent,
   },
   {
-    path: "categories",
+    path: 'categories',
     component: CategoriesComponent,
   },
   {
-    path: "products",
+    path: 'products',
     component: ProductsComponent,
   },
   {
-    path: "generalSale",
+    path: 'generalSale',
     component: GeneralSalesComponent,
   },
   {
-    path: "balances",
+    path: 'balances',
     component: BalancesComponent,
   },
   {
-    path: "mostSold",
+    path: 'mostSold',
     component: MostSoldComponent,
   },
   {
-    path: "employees",
+    path: 'employees',
     component: EmployeesComponent,
   },
   {
-    path: "customers",
+    path: 'customers',
     component: CustomersComponent,
   },
   {
-    path: "categoriesReport",
+    path: 'categoriesReport',
     component: CategoriesReportComponent,
   },
   {
-    path: "productsReport",
+    path: 'productsReport',
     component: ProductsReportComponent,
   },
   {
-    path: "salesReport",
+    path: 'salesReport',
     component: SalesReportComponent,
   },
   {
-    path: "employeesReport",
+    path: 'employeesReport',
     component: EmployeesReportComponent,
   },
   {
-    path: "balancesReport",
+    path: 'balancesReport',
     component: SalesReportComponent,
   },
   {
-    path: "customersReport",
+    path: 'customersReport',
     component: CustomerReportComponent,
   },
   {
-    path: "outOfStockNotication",
+    path: 'outOfStockNotication',
     component: NotificationsComponent,
   },
   {
-    path: "profile",
+    path: 'profile',
     component: ProfileComponent,
   },
   {
-    path: "myDashBoard",
+    path: 'myDashBoard',
     component: MyDashboardComponent,
   },
   {
-    path: "posHome",
-    component: PosHomeComponent
+    path: 'posHome',
+    component: PosHomeComponent,
     // component: PosCheckoutComponent,
-},
+  },
   {
-    path: "posCategories",
+    path: 'posCategories',
     component: PosCategoriesComponent,
-},
-{
-  path: "posProducts",
-  component: PosProductsComponent,
-},
-{
-  path: "posBalances",
-  component: PosBalancesComponent,
-},
-{
-  path: "posBalancesPayment",
-  component: PosBalancePaymentComponent,
-},
-{
-  path: "outOfStockProducts",
-  component: OutOfStockComponent,
-}
+  },
+  {
+    path: 'posProducts',
+    component: PosProductsComponent,
+  },
+  {
+    path: 'posBalances',
+    component: PosBalancesComponent,
+  },
+  {
+    path: 'posBalancesPayment/:balanceId',
+    component: PosBalancePaymentComponent,
+  },
+  {
+    path: 'outOfStockProducts',
+    component: OutOfStockComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
