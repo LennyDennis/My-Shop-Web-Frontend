@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -47,8 +47,27 @@ export class ProductService {
   }
 
   deleteProduct(productId) {
+    const params = new HttpParams().set('productId', productId);
     return this._http
-      .put<any>(this._productRootUrl + 'delete?productId', productId)
+      .put<any>(this._productRootUrl + 'delete', {}, { params })
+      .pipe(
+        map(
+          (result) => {
+            return result;
+          },
+          (error) => {
+            return error;
+          }
+        )
+      );
+  }
+
+  addProductStock(productId, newStock) {
+    const params = new HttpParams()
+      .set('productId', productId)
+      .set('newStock', newStock);
+    return this._http
+      .put<any>(this._productRootUrl + 'restock', {}, { params })
       .pipe(
         map(
           (result) => {

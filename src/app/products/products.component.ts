@@ -59,7 +59,6 @@ export class ProductsComponent implements OnInit {
   }
 
   openDialog(action, obj) {
-    console.log;
     obj.action = action;
     const dialogRef = this.dialog.open(ProductDialogComponent, {
       width: '500px',
@@ -109,9 +108,6 @@ export class ProductsComponent implements OnInit {
       sellingPrice: productData.sellingPrice,
       maxDiscount: productData.maxDiscount,
     };
-
-    console.log(productDetails);
-
     this._productService.editProduct(productDetails).subscribe(
       (res) => {
         this._productNotification.showSuccess('Product edited successfully!');
@@ -124,7 +120,31 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-  deleteProduct(row_obj) {}
+  deleteProduct(productData) {
+    this._productService.deleteProduct(productData.productId).subscribe(
+      (res) => {
+        this._productNotification.showSuccess('Product deleted successfully');
+        this.ngOnInit();
+      },
+      (err) => {
+        this._productNotification.showError(err.error);
+        this.ngOnInit();
+      }
+    );
+  }
 
-  addProductStock(row_obj) {}
+  addProductStock(productData) {
+    let productId = productData.productId;
+    let newStock = productData.newStock;
+    this._productService.addProductStock(productId, newStock).subscribe(
+      (res) => {
+        this._productNotification.showSuccess('Stock added successfully');
+        this.ngOnInit();
+      },
+      (err) => {
+        this._productNotification.showError(err.error);
+        this.ngOnInit();
+      }
+    );
+  }
 }

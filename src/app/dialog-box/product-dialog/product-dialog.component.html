@@ -54,11 +54,11 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input placeholder="Current Stock:" matInput [(ngModel)]="product_data.quantity" [readonly]="true">
+        <input placeholder="Current Stock:" matInput [(ngModel)]="product_data.stockQuantity" [readonly]="true">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input placeholder="New Stock:" matInput>
+        <input placeholder="New Stock:" matInput [(ngModel)]="product_data.newStock">
       </mat-form-field>
     </div>
 
