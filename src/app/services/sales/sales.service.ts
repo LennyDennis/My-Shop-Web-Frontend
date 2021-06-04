@@ -5,11 +5,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SalesService {
-  private _productRootUrl = 'http://localhost:8080/shop/api/sell/';
+  private _salesUrl = 'http://localhost:8080/shop/api/sell/';
+  private _balanceUrl = 'http://localhost:8080/shop/api/balance';
 
   constructor(private _http: HttpClient) {}
 
   public getGeneralSales() {
-    return this._http.get(this._productRootUrl);
+    return this._http.get(this._salesUrl);
+  }
+
+  public getBalances() {
+    return this._http.get(this._balanceUrl);
   }
 }
