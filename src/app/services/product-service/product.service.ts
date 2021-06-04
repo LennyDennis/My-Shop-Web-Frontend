@@ -14,6 +14,10 @@ export class ProductService {
     return this._http.get(this._productRootUrl + 'all');
   }
 
+  public getOutOfStockProducts() {
+    return this._http.get(this._productRootUrl + 'outOfStock');
+  }
+
   public getCategoryProducts(categoryId) {
     return this._http.get(
       this._productRootUrl + 'category/products?categoryId=' + categoryId

@@ -29,8 +29,6 @@ export class ProductsComponent implements OnInit {
     'action',
   ];
   products = new MatTableDataSource();
-  //active
-  activationStatus = 1;
 
   constructor(
     public dialog: MatDialog,
