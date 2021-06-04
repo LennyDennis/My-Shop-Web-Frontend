@@ -43,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ProductService } from './services/product-service/product.service';
 import { NotificationService } from './services/notification-service/notification.service';
 import { CategoryService } from './services/category-service/category.service';
+import { SalesService } from './services/sales/sales.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,12 @@ import { CategoryService } from './services/category-service/category.service';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ProductService, NotificationService, CategoryService],
+  providers: [
+    ProductService,
+    NotificationService,
+    CategoryService,
+    SalesService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
