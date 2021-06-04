@@ -11,10 +11,10 @@
 <div mat-dialog-content>
   <div *ngIf="action != 'Delete' && action != 'Add Stock'; else elseTemplate">
     <mat-form-field class="full-width">
-      <input placeholder="Name:" matInput [(ngModel)]="product_data.productName">
+      <input placeholder="Name:" matInput [(ngModel)]="product_data.name">
     </mat-form-field>
 
-    <mat-form-field *ngIf="action != 'Edit'; else elseEdit" class="full-width">
+    <mat-form-field class="full-width">
       <mat-label>Category</mat-label>
       <mat-select [(value)]="categoryId" [(ngModel)]="product_data.categoryId">
         <mat-option *ngFor="let category of categories" [value]="category.categoryId">
@@ -22,17 +22,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-    <ng-template #elseEdit>
-      <mat-form-field class="full-width">
-        <mat-label>Category</mat-label>
-        <mat-select [(value)]="categoryId">
-          <mat-option *ngFor="let category of categories" [value]="category.categoryId">
-            {{category.categoryName}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </ng-template>
 
     <mat-form-field class="full-width">
       <input placeholder="Buying Price:" matInput [(ngModel)]="product_data.buyingPrice">
@@ -46,15 +35,15 @@
       <input placeholder="Max Discount:" matInput [(ngModel)]="product_data.maxDiscount">
     </mat-form-field>
 
-    <div mat-dialog-title *ngIf="action != 'Add';">
+    <!-- <div mat-dialog-title *ngIf="action != 'Add';">
       <button *ngIf="product_data.status == 'Active'; else elseDeactivate" mat-button class="btn btn-danger full-width">
         De-activate Product
       </button>
-    </div>
+    </div> -->
 
-    <ng-template #elseDeactivate>
+    <!-- <ng-template #elseDeactivate>
       <button mat-button class="btn btn-success full-width">Activate Product</button>
-    </ng-template>
+    </ng-template> -->
 
   </div>
 

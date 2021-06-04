@@ -81,7 +81,29 @@ export class ProductsComponent implements OnInit {
 
   addProduct(productData) {
     let productDetails = {
-      name: productData.productName,
+      name: productData.name,
+      category: productData.categoryId,
+      buyingPrice: productData.buyingPrice,
+      sellingPrice: productData.sellingPrice,
+      maxDiscount: productData.maxDiscount,
+    };
+
+    this._productService.addProduct(productDetails).subscribe(
+      (res) => {
+        this._productNotification.showSuccess('Product added successfully!');
+        this.ngOnInit();
+      },
+      (err) => {
+        this._productNotification.showError(err.error);
+        this.ngOnInit();
+      }
+    );
+  }
+
+  editProduct(productData) {
+    let productDetails = {
+      id: productData.productId,
+      name: productData.name,
       category: productData.categoryId,
       buyingPrice: productData.buyingPrice,
       sellingPrice: productData.sellingPrice,
@@ -90,19 +112,17 @@ export class ProductsComponent implements OnInit {
 
     console.log(productDetails);
 
-    this._productService.addProduct(productDetails).subscribe(
+    this._productService.editProduct(productDetails).subscribe(
       (res) => {
-        this._productNotification.showSuccess('Product added successfully!');
+        this._productNotification.showSuccess('Product edited successfully!');
         this.ngOnInit();
       },
       (err) => {
-        console.log(err);
         this._productNotification.showError(err.error);
+        this.ngOnInit();
       }
     );
   }
-
-  editProduct(row_obj) {}
 
   deleteProduct(row_obj) {}
 
