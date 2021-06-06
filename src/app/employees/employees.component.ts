@@ -100,8 +100,6 @@ export class EmployeesComponent implements OnInit {
       phone: userData.phone,
       role: userData.role,
     };
-
-    console.log(userDetails);
     this._userService.editUser(userDetails).subscribe(
       (res) => {
         this._userNotification.showSuccess('User edited successfully!');
