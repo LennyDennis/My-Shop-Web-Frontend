@@ -7,42 +7,39 @@ import { Role } from 'src/app/models/role';
 @Component({
   selector: 'app-employee-dialog',
   templateUrl: './employee-dialog.component.html',
-  styleUrls: ['./employee-dialog.component.css']
+  styleUrls: ['./employee-dialog.component.css'],
 })
 export class EmployeeDialogComponent implements OnInit {
-
-  action:string;
-  employee_data:any;
-  role:string;
-  roleId:number;
+  action: string;
+  employee_data: any;
+  role: number;
+  roleId: number;
 
   roles: Role[] = [
-    {id: 1, name: 'Admin'},
-    {id: 2, name: 'Employee'},
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'Employee' },
   ];
 
   constructor(
     public dialogRef: MatDialogRef<EmployeesComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data:Employee
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Employee
   ) {
-    this.employee_data = {...data};
+    this.employee_data = { ...data };
     this.action = this.employee_data.action;
-    if( this.action == "Edit"){
+    if (this.action == 'Edit') {
       this.role = this.employee_data.role;
-      const roleSelected = this.roles.find(role => role.name  == this.role);
-      this.roleId = roleSelected.id
+      const roleSelected = this.roles.find((role) => role.id == this.role);
+      this.roleId = roleSelected.id;
     }
   }
 
-  doAction(){
-    this.dialogRef.close({event:this.action,data:this.employee_data});
+  doAction() {
+    this.dialogRef.close({ event: this.action, data: this.employee_data });
   }
 
-  closeDialog(){
-    this.dialogRef.close({event:'Cancel'});
+  closeDialog() {
+    this.dialogRef.close({ event: 'Cancel' });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
