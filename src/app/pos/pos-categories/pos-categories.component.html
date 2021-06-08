@@ -16,14 +16,21 @@
   <div class="card-body category-body-section">
     <div class="align-items-center">
       <div class="row">
-
-        <ng-container *ngFor="let category of categoriesArray; let i = index">
-          <div class="col-12 col-sm-6 col-md-4 ">
+        <ng-container *ngFor="let category of categories; let i = index">
+          <div class="col-12 col-sm-6 col-md-4 d-flex">
             <div class="info-box mb-3 elevation-4 category-card">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-basket"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-number">{{category.categoryName}}</span>
-                <a href="#" class="info-box-text">View Products <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="row m-0">
+                <div class="col-md-4 p-0 d-flex">
+                  <span class="info-box-icon bg-success elevation-1">
+                    <i class="fas fa-shopping-basket"></i>
+                  </span>
+                </div>
+                <div class="col-md-8 ">
+                  <div class="info-box-content p-0">
+                    <span class="info-box-number">{{category.categoryName}}</span>
+                    <a href="#" class="info-box-text">View Products <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
