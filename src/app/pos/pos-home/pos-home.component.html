@@ -1,5 +1,4 @@
 <div class="content-wrapper">
-
   <div class="content-header">
     <div class="container-fluid">
       <div class="row justify-content-between">
@@ -19,21 +18,25 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <section class="content">
-          <app-pos-categories></app-pos-categories>
-          <!-- <app-pos-products></app-pos-products> -->
+            <app-pos-categories></app-pos-categories>
         </section>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-4 ">
+      <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="card cart">
           <div class="card-header">
             <div class="card-title icheck-primary">
-              <input type="checkbox" value="" id="check1">
+              <input type="checkbox" value="" id="check1" />
               <label for="check1"></label>
             </div>
             <div class="card-tools">
-              <div class="input-group" style="width: auto;">
-                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+              <div class="input-group" style="width: auto">
+                <input
+                  type="text"
+                  name="table_search"
+                  class="form-control float-right"
+                  placeholder="Search"
+                />
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-default">
                     <i class="fas fa-search"></i>
@@ -43,7 +46,7 @@
             </div>
           </div>
           <div class="card-body cart-body">
-            <div *ngFor=" let product of productsArray; let i=index">
+            <div *ngFor="let product of productsArray; let i = index">
               <div class="row cart-item">
                 <div class="col-lg-1">
                   <span class="item_no">1.</span>
@@ -54,18 +57,27 @@
                       <div class="d-flex justify-content-md-between">
                         <div>
                           <span class="item_no mr-3">
-                            <i class="left fas fa-angle-right fa-lg" (click)="hideItem[i] = !hideItem[i]"
-                              [hidden]="hideItem[i]"></i>
-                            <i class="left fas fa-angle-down fa-lg" (click)="hideItem[i] = !hideItem[i]"
-                              [hidden]="!hideItem[i]"></i>
+                            <i
+                              class="left fas fa-angle-right fa-lg"
+                              (click)="hideItem[i] = !hideItem[i]"
+                              [hidden]="hideItem[i]"
+                            ></i>
+                            <i
+                              class="left fas fa-angle-down fa-lg"
+                              (click)="hideItem[i] = !hideItem[i]"
+                              [hidden]="!hideItem[i]"
+                            ></i>
                           </span>
                           <span class="item_no mr-2">2 </span>
-                          {{product.name}}
+                          {{ product.name }}
                         </div>
                         <div>
                           <span class="mr-3">200</span>
                           <span class="item_no">
-                            <i class="fa fa-trash red-text delete-button" aria-hidden="true"></i>
+                            <i
+                              class="fa fa-trash red-text delete-button"
+                              aria-hidden="true"
+                            ></i>
                           </span>
                         </div>
                       </div>
@@ -75,15 +87,24 @@
                         <div class="d-flex justify-content-md-between">
                           <div class="col-lg-4">
                             <span class="cart-input-header">Quantity</span>
-                            <input type="text" class="form-control cart-input">
+                            <input
+                              type="text"
+                              class="form-control cart-input"
+                            />
                           </div>
                           <div class="col-lg-4">
                             <span class="cart-input-header">Price</span>
-                            <input type="text" class="form-control cart-input">
+                            <input
+                              type="text"
+                              class="form-control cart-input"
+                            />
                           </div>
                           <div class="col-lg-4">
                             <span class="cart-input-header">Discount</span>
-                            <input type="text" class="form-control cart-input">
+                            <input
+                              type="text"
+                              class="form-control cart-input"
+                            />
                           </div>
                         </div>
                       </div>
@@ -105,6 +126,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

@@ -1,4 +1,6 @@
-<div class="card info-section">
+<app-pos-products *ngIf="!displayOption" [categoryId]="category" (displayCategoryEvent)="displayCategories()"></app-pos-products>
+
+<div class="card info-section" *ngIf="displayOption">
   <div class="card-header">
     <h2 class="card-title category-header">Categories</h2>
     <div class="card-tools">
@@ -17,7 +19,7 @@
     <div class="align-items-center">
       <div class="row">
         <ng-container *ngFor="let category of categories; let i = index">
-          <div class="col-12 col-sm-6 col-md-4 d-flex">
+          <div class="col-12 col-sm-6 col-md-4 d-flex" (click)="goToCategoryProduct(category.categoryId)">
             <div class="info-box mb-3 elevation-4 category-card">
               <div class="row m-0">
                 <div class="col-md-4 p-0 d-flex">
@@ -28,7 +30,7 @@
                 <div class="col-md-8 ">
                   <div class="info-box-content p-0">
                     <span class="info-box-number">{{category.categoryName}}</span>
-                    <a href="#" class="info-box-text">View Products <i class="fas fa-arrow-circle-right"></i></a>
+                    <p>View Products <i class="fas fa-arrow-circle-right"></i></p>
                   </div>
                 </div>
               </div>
@@ -40,3 +42,5 @@
     </div>
   </div>
 </div>
+
+

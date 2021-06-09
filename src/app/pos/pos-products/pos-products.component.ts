@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -27,8 +27,15 @@ const PRODUCT_DATA: Product[] = [
 })
 export class PosProductsComponent implements OnInit {
 
+  @Input() categoryId:String;
+
+  @Output() displayCategoryEvent = new EventEmitter<Boolean>();
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  showProduct:boolean = false;
+
 
   notificationsArray = new MatTableDataSource(PRODUCT_DATA);
 
@@ -47,12 +54,17 @@ export class PosProductsComponent implements OnInit {
 
   constructor() {}
 
-    ngOnInit() {
+    ngOnInit():void {
+      console.log(this.categoryId)
     }
 
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.notificationsArray.filter = filterValue.trim().toLowerCase();
+    }
+
+    goToCategories(){
+      this.displayCategoryEvent.emit();
     }
 
 }

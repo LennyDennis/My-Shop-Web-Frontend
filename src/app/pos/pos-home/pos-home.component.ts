@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
+import { PosCategoriesComponent } from '../pos-categories/pos-categories.component';
+import { PosProductsComponent } from '../pos-products/pos-products.component';
 
 const CATEGORY_DATA: Category[] = [
   {categoryId: 1, categoryName: 'Hydrogen 1', totalProducts: 100, status:"Active"},
@@ -37,14 +39,13 @@ const PRODUCT_DATA: Product[] = [
   styleUrls: ['./pos-home.component.css']
 })
 export class PosHomeComponent implements OnInit {
-
   categoriesArray = CATEGORY_DATA;
   productsArray = PRODUCT_DATA;
   hideItem=[]
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   // showItemDetails = {

@@ -106,16 +106,25 @@ const routes: Routes = [
   {
     path: 'posHome',
     component: PosHomeComponent,
-    // component: PosCheckoutComponent,
+    children:[
+      {
+        path: 'posCategories',
+        component: PosCategoriesComponent,
+      },
+      {
+        path: 'posProducts/:categoryId',
+        component: PosProductsComponent,
+      }
+    ]
   },
-  {
-    path: 'posCategories',
-    component: PosCategoriesComponent,
-  },
-  {
-    path: 'posProducts',
-    component: PosProductsComponent,
-  },
+  // {
+  //   path: 'posCategories',
+  //   component: PosCategoriesComponent,
+  // },
+  // {
+  //   path: 'posProducts/:categoryId',
+  //   component: PosProductsComponent,
+  // },
   {
     path: 'posBalances',
     component: PosBalancesComponent,
@@ -132,6 +141,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+// imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
