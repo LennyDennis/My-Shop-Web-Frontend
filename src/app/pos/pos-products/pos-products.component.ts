@@ -3,22 +3,8 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/models/product';
-
-const PRODUCT_DATA: Product[] = [
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watchjhb',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'}
-];
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { ProductService } from 'src/app/services/product-service/product.service';
 
 @Component({
   selector: 'app-pos-products',
@@ -36,12 +22,12 @@ export class PosProductsComponent implements OnInit {
 
   showProduct:boolean = false;
 
-
-  notificationsArray = new MatTableDataSource(PRODUCT_DATA);
+  products = new MatTableDataSource();
+  categoryName:String;
 
   lowValue: number = 0;
   highValue: number = 5;
-  length = this.notificationsArray.data.length
+  length = this.products.data.length
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 20, 100];
   pageEvent: PageEvent;
@@ -52,15 +38,27 @@ export class PosProductsComponent implements OnInit {
     return event;
   }
 
-  constructor() {}
+  constructor(
+    private _productService: ProductService  ) {}
 
     ngOnInit():void {
-      console.log(this.categoryId)
+      let categoryId = this.categoryId;
+      this.getProductsInACategory(categoryId);
+    }
+
+    getProductsInACategory(categoryId) {
+      this._productService.getCategoryProducts(categoryId).subscribe(
+        (res) => {
+          this.categoryName = (<any>res).categoryName;
+          this.products = new MatTableDataSource((<any>res).products);
+        },
+        (err) => {}
+      );
     }
 
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
-      this.notificationsArray.filter = filterValue.trim().toLowerCase();
+      this.products.filter = filterValue.trim().toLowerCase();
     }
 
     goToCategories(){
