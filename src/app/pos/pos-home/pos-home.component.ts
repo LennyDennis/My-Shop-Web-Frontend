@@ -17,35 +17,24 @@ const CATEGORY_DATA: Category[] = [
   {categoryId: 10, categoryName: 'Hydrogen 10', totalProducts: 100, status:"Active"}
 ];
 
-const PRODUCT_DATA: Product[] = [
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watchjhb',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'}
-];
-
 @Component({
   selector: 'app-pos-home',
   templateUrl: './pos-home.component.html',
   styleUrls: ['./pos-home.component.css']
 })
 export class PosHomeComponent implements OnInit {
+
+
   categoriesArray = CATEGORY_DATA;
-  productsArray = PRODUCT_DATA;
   hideItem=[]
+  displayOption:Boolean;
+  categoryId:String;
+  productCartList = []
 
   constructor() { }
 
   ngOnInit() {
+    this.displayOption = true
   }
 
   // showItemDetails = {
@@ -56,6 +45,23 @@ export class PosHomeComponent implements OnInit {
   //   this.hideItem = false
   //   return this.hideItem;
   // }
+
+  setDisplayOption(option){
+    this.displayOption = option
+  }
+
+  setCategoryId(categoryId){
+    this.categoryId = categoryId
+  }
+
+  addProductToCart(product){
+    console.log(product)
+    this.productCartList.push(product)
+  }
+
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
 
   onClick(item) {
     Object.keys(this.hideItem).forEach(cartItem => {

@@ -30,7 +30,7 @@
           <div><span class="header">Max Discount:</span><br>{{product.maxDiscount}}</div>
           <div><span class="header">Stock Remaining:</span><br>{{product.stockQuantity}}</div>
           <div>
-            <button mat-raised-button class="btn btn-success cart-button">
+            <button mat-raised-button class="btn btn-success cart-button" (click)="addProductToCart(product)">
               Add to Cart
               <i class="fas fa-shopping-cart"></i>
             </button>

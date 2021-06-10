@@ -8,17 +8,17 @@ import { CategoryService } from 'src/app/services/category-service/category.serv
 })
 export class PosCategoriesComponent implements OnInit {
 
+  @Output() displayOptionEvent = new EventEmitter<Boolean>();
+  @Output() categoryIdEvent = new EventEmitter<String>();
 
   categories = [];
-  displayOption:Boolean = true;
-  category:String;
 
   constructor(
     private _categoryService: CategoryService
   ) {}
 
   ngOnInit() {
-      this.getAllCategories();
+    this.getAllCategories();
   }
 
   getAllCategories() {
@@ -31,13 +31,8 @@ export class PosCategoriesComponent implements OnInit {
   }
 
   goToCategoryProduct(categoryId) {
-    console.log(categoryId);
-    this.category = categoryId;
-    this.displayOption = false
-  }
-
-  displayCategories(){
-    this.displayOption = true
+    this.displayOptionEvent.emit(false);
+    this.categoryIdEvent.emit(categoryId);
   }
 
   showDiv = {
