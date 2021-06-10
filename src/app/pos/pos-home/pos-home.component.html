@@ -69,11 +69,11 @@
                               [hidden]="!hideItem[i]"
                             ></i>
                           </span>
-                          <span class="item_no mr-2">{{product.quantityToSell}}</span>
-                          {{ product.name }}
+                          <span class="item_no mr-2">{{1 * product.cartQuantityToSell}}</span>
+                          {{ product.cartName }}
                         </div>
                         <div>
-                          <span class="mr-3">{{product.quantityToSell * product.sellingPrice}}</span>
+                          <span class="mr-3">{{product.cartQuantityToSell * product.cartSellingPrice}}</span>
                           <span class="item_no">
                             <i
                               class="fa fa-trash red-text delete-button"
@@ -89,29 +89,22 @@
                           <div class="col-lg-6">
                             <span class="cart-input-header">Quantity</span>
                             <input
-                              value={{product.quantityToSell}}
+                              value={{product.cartQuantityToSell}}
                               type="text"
                               class="form-control cart-input"
-                              [(ngModel)]="product.quantityToSell"
+                              [(ngModel)]="product.cartQuantityToSell"
                             />
                           </div>
                           <div class="col-lg-6">
                             <span class="cart-input-header">Unit Price</span>
                             <input
-                              value={{product.sellingPrice}}
+                              value={{product.cartSellingPrice}}
                               type="text"
                               class="form-control cart-input"
-                              (input)="product.sellingPrice=getValue($event)"
+                              [(ngModel)]="product.cartSellingPrice"
+                              (input)="product.cartSellingPrice=getValue($event)"
                             />
                           </div>
-                          <!-- <div class="col-lg-4">
-                            <span class="cart-input-header">Discount</span>
-                            <input
-                              type="text"
-                              class="form-control cart-input"
-                              [(ngModel)]="product.discount"
-                            />
-                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -123,7 +116,7 @@
           <div class="card-footer">
             <div class="d-flex justify-content-md-between total">
               <p class="total-text">Total</p>
-              <p>200</p>
+              <p>{{ getTotal() }}</p>
             </div>
             <button mat-raised-button class="btn btn-success checkout-btn mt-1">
               Check Out

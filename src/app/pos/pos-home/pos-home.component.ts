@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
+import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { PosCategoriesComponent } from '../pos-categories/pos-categories.component';
 import { PosProductsComponent } from '../pos-products/pos-products.component';
 
@@ -30,8 +31,11 @@ export class PosHomeComponent implements OnInit {
   displayOption:Boolean;
   categoryId:String;
   productCartList = []
+  total:number = 0;
 
-  constructor() { }
+  constructor(
+    private _posNotification: NotificationService
+  ) { }
 
   ngOnInit() {
     this.displayOption = true
@@ -55,12 +59,25 @@ export class PosHomeComponent implements OnInit {
   }
 
   addProductToCart(product){
-    console.log(product)
-    this.productCartList.push(product)
+    let productExist = this.productCartList.find(cartProduct => cartProduct.cartProductId === product.cartProductId);
+    if(productExist !== undefined){
+      this._posNotification.showWarning("Product already exists in cart");
+    }else{
+      this.productCartList.push(product)
+    }
   }
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
+  }
+
+  getTotal():number{
+    var total = 0;
+    for(var i = 0; i < this.productCartList.length; i++){
+        var product = this.productCartList[i];
+        total += (product.cartSellingPrice * product.cartQuantityToSell);
+    }
+    return total;
   }
 
   onClick(item) {

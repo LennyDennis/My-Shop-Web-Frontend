@@ -79,7 +79,7 @@ export class PosProductsComponent implements OnInit {
           cartCategoryId:product.categoryId,
           cartCategory:product.category,
           cartBuyingPrice:product.buyingPrice,
-          cartSellingPrice:product.sellingPrice,
+          cartSellingPrice:Math.round(product.sellingPrice),
           cartMaxDiscount:product.maxDiscount,
           cartStockQuantity:product.stockQuantity,
           cartRestockStatus:product.restockStatus,
