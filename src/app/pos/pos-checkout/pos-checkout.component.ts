@@ -11,6 +11,7 @@ import { CartService } from 'src/app/services/cart-service/cart.service';
 export class PosCheckoutComponent implements OnInit {
 
   products: SellProduct[] = [];
+  cashPaid:number = 0;
 
   constructor(
     private _cartService: CartService
@@ -29,5 +30,19 @@ export class PosCheckoutComponent implements OnInit {
     }
     return total;
   }
+
+  // enterCashPaid(event: Event): number {
+  //   return (event.target as HTMLInputElement).value;
+  // }
+
+  // getBalance():number{
+  //   this.totalCost - this.cashPaid
+  //   var total = 0;
+  //   for(var i = 0; i < this.productCartList.length; i++){
+  //       var product = this.productCartList[i];
+  //       total += (product.cartSellingPrice * product.cartQuantityToSell);
+  //   }
+  //   return total;
+  // }
 
 }

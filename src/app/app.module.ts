@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +46,8 @@ import { CategoryService } from './services/category-service/category.service';
 import { SalesService } from './services/sales/sales.service';
 import { UserService } from './services/user-service/user.service';
 import { CartService } from './services/cart-service/cart.service';
+import { NgSelectModule} from '@ng-select/ng-select';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { CartService } from './services/cart-service/cart.service';
     MaterialModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    NgSelectModule,
+    NgOptionHighlightModule,
   ],
   providers: [
     ProductService,
@@ -100,6 +104,9 @@ import { CartService } from './services/cart-service/cart.service';
     SalesService,
     UserService,
     CartService
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent],
 })
