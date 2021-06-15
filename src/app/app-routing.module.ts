@@ -137,6 +137,10 @@ const routes: Routes = [
     path: 'outOfStockProducts',
     component: OutOfStockComponent,
   },
+  {
+    path: 'posCheckoutComponent',
+    component: PosCheckoutComponent,
+  }
 ];
 
 @NgModule({

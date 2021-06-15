@@ -45,6 +45,7 @@ import { NotificationService } from './services/notification-service/notificatio
 import { CategoryService } from './services/category-service/category.service';
 import { SalesService } from './services/sales/sales.service';
 import { UserService } from './services/user-service/user.service';
+import { CartService } from './services/cart-service/cart.service';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { UserService } from './services/user-service/user.service';
     CategoryService,
     SalesService,
     UserService,
+    CartService
   ],
   bootstrap: [AppComponent],
 })

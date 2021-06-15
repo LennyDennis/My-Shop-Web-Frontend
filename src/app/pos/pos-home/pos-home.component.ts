@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
+import { SellProduct } from 'src/app/models/sellproduct';
+import { CartService } from 'src/app/services/cart-service/cart.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { PosCategoriesComponent } from '../pos-categories/pos-categories.component';
 import { PosProductsComponent } from '../pos-products/pos-products.component';
@@ -32,13 +34,17 @@ export class PosHomeComponent implements OnInit {
   categoryId:String;
   productCartList = []
   total:number = 0;
+  products: SellProduct[] = [];
 
   constructor(
-    private _posNotification: NotificationService
+    private _posNotification: NotificationService,
+    private _cartService:CartService
   ) { }
 
   ngOnInit() {
     this.displayOption = true
+    this.products = this._cartService.getCheckoutProducts()
+    console.log(this.products)
   }
 
   // showItemDetails = {
@@ -85,6 +91,14 @@ export class PosHomeComponent implements OnInit {
       this.hideItem[cartItem] = false;
     });
     this.hideItem[item.id] = true;
+  }
+
+  goToCheckOut(){
+    this._cartService.addProductsToCheckout(this.productCartList);
+  //   for(var i = 0; i < this.productCartList.length; i++){
+  //     var product = this.productCartList[i];
+  //     total += (product.cartSellingPrice * product.cartQuantityToSell);
+  // }
   }
 
 }
