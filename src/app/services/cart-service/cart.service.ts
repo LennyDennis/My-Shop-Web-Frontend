@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Customer } from 'src/app/models/customer';
 import { SellProduct } from 'src/app/models/sellproduct';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { SellProduct } from 'src/app/models/sellproduct';
 export class CartService {
 
   products: SellProduct[] = [];
+  customer: Customer;
 
   constructor() { }
 
@@ -14,9 +16,14 @@ export class CartService {
     this.products.push(product);
   }
 
-  addProductsToCheckout(products: SellProduct[]) {
+  addCartDetailsToCheckout(products: SellProduct[],customer: Customer) {
     this.products = products;
+    if(customer){
+      this.customer = customer
+    }
   }
+
+
 
   getCheckoutProducts() {
     return this.products;

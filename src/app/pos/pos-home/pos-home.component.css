@@ -45,7 +45,8 @@ h2 {
   bottom: 24px;
 }
 .cart {
-  max-height: 500px;
+  height: 480px;
+  max-height: 480px;
 }
 .cart-body {
   padding: 5px 10px 10px 10px;

@@ -45,7 +45,7 @@
                 [items]="customers"
                 bindLabel="name"
                 autofocus
-                bindValue="customerSelected"
+                bindValue="id"
                 [(ngModel)]="customerSelected"
                 placeholder="Select customer.."
               >
@@ -88,7 +88,8 @@
                           <span class="item_no">
                             <i
                               class="fa fa-trash red-text delete-button"
-                              aria-hidden="true"
+                              aria-hidden="true" (click)="removeProductFromCart(product)"
+
                             ></i>
                           </span>
                         </div>
@@ -134,9 +135,7 @@
             <button
               mat-raised-button
               class="btn btn-success checkout-btn mt-1"
-              (click)="goToCheckOut()"
-              routerLink="/posCheckoutComponent"
-            >
+              (click)="goToCheckOut()"            >
               Check Out
             </button>
           </div>

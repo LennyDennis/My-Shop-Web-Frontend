@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { SellProduct } from 'src/app/models/sellproduct';
 import { CartService } from 'src/app/services/cart-service/cart.service';
@@ -10,60 +10,57 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-pos-home',
   templateUrl: './pos-home.component.html',
-  styleUrls: ['./pos-home.component.css']
+  styleUrls: ['./pos-home.component.css'],
 })
-
-
 export class PosHomeComponent implements OnInit {
+  hideItem = [];
+  displayOption: Boolean;
+  categoryId: String;
+  productCartList = [];
+  total: number = 0;
+  products: SellProduct[] = [];
+  customers = [];
+  customerSelected?: string;
 
-    hideItem=[]
-    displayOption:Boolean;
-    categoryId:String;
-    productCartList = []
-    total:number = 0;
-    products: SellProduct[] = [];
-    customers = []
-    customerSelected?: string;
+  public model: any;
+  selectCustomer: FormGroup;
 
-    public model: any;
-    selectCustomer: FormGroup;
-
-    constructor(
-      private _posNotification: NotificationService,
-      private _cartService:CartService,
-      private _userService: UserService,
-      private config: NgSelectConfig
-    ) {
-      this.config.notFoundText = 'Custom not found';
-      this.config.appendTo = 'body';
-     }
-
-    ngOnInit() {
-      this.displayOption = true
-      this.products = this._cartService.getCheckoutProducts()
-      this.getCustomers();
-
-
-      this.selectCustomer = new FormGroup({
-        customer: new FormControl()
-     });
-
-    }
-
-  setDisplayOption(option){
-    this.displayOption = option
+  constructor(
+    private _posNotification: NotificationService,
+    private _cartService: CartService,
+    private _userService: UserService,
+    private config: NgSelectConfig
+  ) {
+    this.config.notFoundText = 'Custom not found';
+    this.config.appendTo = 'body';
   }
 
-  setCategoryId(categoryId){
-    this.categoryId = categoryId
+  ngOnInit() {
+    this.displayOption = true;
+    this.products = this._cartService.getCheckoutProducts();
+    this.getCustomers();
+
+    this.selectCustomer = new FormGroup({
+      customer: new FormControl(),
+    });
   }
 
-  addProductToCart(product){
-    let productExist = this.productCartList.find(cartProduct => cartProduct.cartProductId === product.cartProductId);
-    if(productExist !== undefined){
-      this._posNotification.showWarning("Product already exists in cart");
-    }else{
-      this.productCartList.push(product)
+  setDisplayOption(option) {
+    this.displayOption = option;
+  }
+
+  setCategoryId(categoryId) {
+    this.categoryId = categoryId;
+  }
+
+  addProductToCart(product) {
+    let productExist = this.productCartList.find(
+      (cartProduct) => cartProduct.cartProductId === product.cartProductId
+    );
+    if (productExist !== undefined) {
+      this._posNotification.showError('Product already exists in cart');
+    } else {
+      this.productCartList.push(product);
     }
   }
 
@@ -71,26 +68,36 @@ export class PosHomeComponent implements OnInit {
     return (event.target as HTMLInputElement).value;
   }
 
-  getTotal():number{
+  getTotal(): number {
     var total = 0;
-    for(var i = 0; i < this.productCartList.length; i++){
-        var product = this.productCartList[i];
-        total += (product.cartSellingPrice * product.cartQuantityToSell);
+    for (var i = 0; i < this.productCartList.length; i++) {
+      var product = this.productCartList[i];
+      total += product.cartSellingPrice * product.cartQuantityToSell;
     }
     return total;
   }
 
   onClick(item) {
-    Object.keys(this.hideItem).forEach(cartItem => {
+    Object.keys(this.hideItem).forEach((cartItem) => {
       this.hideItem[cartItem] = false;
     });
     this.hideItem[item.id] = true;
   }
 
-  goToCheckOut(){
-    this._cartService.addProductsToCheckout(this.productCartList);
-  }
+  goToCheckOut() {
+    const customer = this.customers.find((c) => c.id == this.customerSelected);
+    if (this.productCartList.length > 0) {
+      this._cartService.addCartDetailsToCheckout(
+        this.productCartList,
+        customer
+      );
 
+    } else {
+      this._posNotification.showError(
+        'You must have product on cart to checkout'
+      );
+    }
+  }
 
   getCustomers() {
     // customer role Id = 3
@@ -103,6 +110,16 @@ export class PosHomeComponent implements OnInit {
     );
   }
 
+  removeProductFromCart(product){
+    let productToDelete = this.productCartList.find(
+      (cartProduct) => cartProduct.cartProductId === product.cartProductId
+    );
+    if (productToDelete !== undefined) {
+      const index: number = this.productCartList.indexOf(product);
+      if (index !== -1) {
+          this.productCartList.splice(index, 1);
+      }
 
-
+    }
+  }
 }
