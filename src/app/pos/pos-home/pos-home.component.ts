@@ -6,6 +6,7 @@ import { NotificationService } from 'src/app/services/notification-service/notif
 import { UserService } from 'src/app/services/user-service/user.service';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pos-home',
@@ -19,30 +20,16 @@ export class PosHomeComponent implements OnInit {
   productCartList = [];
   total: number = 0;
   products: SellProduct[] = [];
-  customers = [];
-  customerSelected?: string;
-
-  public model: any;
-  selectCustomer: FormGroup;
 
   constructor(
     private _posNotification: NotificationService,
     private _cartService: CartService,
-    private _userService: UserService,
-    private config: NgSelectConfig
-  ) {
-    this.config.notFoundText = 'Custom not found';
-    this.config.appendTo = 'body';
-  }
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.displayOption = true;
     this.products = this._cartService.getCheckoutProducts();
-    this.getCustomers();
-
-    this.selectCustomer = new FormGroup({
-      customer: new FormControl(),
-    });
   }
 
   setDisplayOption(option) {
@@ -84,30 +71,24 @@ export class PosHomeComponent implements OnInit {
     this.hideItem[item.id] = true;
   }
 
-  goToCheckOut() {
-    const customer = this.customers.find((c) => c.id == this.customerSelected);
+  goToCheckOut(url) {
     if (this.productCartList.length > 0) {
       this._cartService.addCartDetailsToCheckout(
-        this.productCartList,
-        customer
+        this.productCartList
       );
+      this.router.navigate([url]).then( (e) => {
+        if (e) {
+          console.log("Navigation is successful!");
+        } else {
+          console.log("Navigation has failed!");
+        }
+      });
 
     } else {
       this._posNotification.showError(
         'You must have product on cart to checkout'
       );
     }
-  }
-
-  getCustomers() {
-    // customer role Id = 3
-    let customerRoleId = 3;
-    this._userService.getUserByRole(customerRoleId).subscribe(
-      (res) => {
-        this.customers = (<any>res).customers;
-      },
-      (err) => {}
-    );
   }
 
   removeProductFromCart(product){

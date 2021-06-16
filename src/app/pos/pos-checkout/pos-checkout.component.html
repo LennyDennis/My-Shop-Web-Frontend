@@ -1,10 +1,14 @@
 <div class="content-wrapper">
-
   <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="row mb-1 justify-content-between">
         <div class="col-sm-6">
           <h1>Check Out</h1>
+        </div>
+        <div class="float-right mr-2">
+          <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>New Customer
+          </button>
         </div>
       </div>
     </div>
@@ -16,26 +20,31 @@
         <div class="card-body">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm 12">
-              <div class="card  sale-section">
+              <div class="card sale-section">
                 <div class="card-header pb-2">
-                  <h2 class="card-title  mb-0">Sale Summary</h2>
+                  <h2 class="card-title mb-0">Sale Summary</h2>
                 </div>
                 <div class="card-body pt-2 sale-body-section">
-                  <div *ngFor=" let product of products; let i=index">
+                  <div *ngFor="let product of products; let i = index">
                     <div class="row cart-item">
                       <div class="col-lg-1">
-                        <span class="item_no">{{1+i}}.</span>
+                        <span class="item_no">{{ 1 + i }}.</span>
                       </div>
                       <div class="col-lg-11">
                         <div class="row">
                           <div class="col-lg-12">
                             <div class="d-flex justify-content-md-between">
                               <div>
-                                <span class="item_no mr-3">{{product.cartQuantityToSell}}</span>
-                                {{product.cartName}}
+                                <span class="item_no mr-3">{{
+                                  product.cartQuantityToSell
+                                }}</span>
+                                {{ product.cartName }}
                               </div>
                               <div>
-                                {{product.cartSellingPrice * product.cartQuantityToSell}}
+                                {{
+                                  product.cartSellingPrice *
+                                    product.cartQuantityToSell
+                                }}
                               </div>
                             </div>
                           </div>
@@ -43,12 +52,11 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div class="card-footer font-weight-bold">
                   <div class="d-flex justify-content-md-between total">
                     <p>Total Cost</p>
-                    <p>{{getTotal()}}</p>
+                    <p>{{ getTotal() }}</p>
                   </div>
                   <!-- <div class="d-flex justify-content-md-between text-success">
                     <p>Discount</p>
@@ -64,7 +72,7 @@
 
             <div class="col-lg-6 col-md-6 col-sm 12">
               <div class="card payment-section">
-                <div class="card-body pt-2 ">
+                <div class="card-body pt-2">
                   <div class="d-flex mb-2">
                     <!-- <div class="name mr-2">L</div>
                     <div>
@@ -72,65 +80,83 @@
                         0900000000</p>
                     </div> -->
 
-                    <div class="col-sm-10 col-md-8 col-lg-8 p-0">
-                      <mat-form-field appearance="outline">
-                        <mat-label>Select Customer</mat-label>
-                        <input matInput placeholder="Ex. John Doe" #input>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-sm-2 col-md-4 col-lg-4 p-0">
-                      <button class="float-right" mat-raised-button color="primary">
-                        <mat-icon>add</mat-icon>New Customer
-                      </button>
-                    </div>
+                        <div class="icheck-primary">
+                          <input type="checkbox" value="" id="check1" />
+                          <label for="check1"></label>
+                        </div>
 
+                        <div class="md-form flex-fill">
+                          <ng-select
+                            [items]="customers"
+                            bindLabel="name"
+                            autofocus
+                            bindValue="id"
+                            [(ngModel)]="customerSelected"
+                            placeholder="Select customer.."
+                          >
+                          </ng-select>
+                        </div>
                   </div>
                   <h2 class="mb-1">Payment Method</h2>
                   <div class="row mb-3">
                     <div class="col-lg-6">
-                      <button mat-raised-button class="btn btn-success payment-btn">
+                      <button
+                        mat-raised-button
+                        class="btn btn-success payment-btn"
+                      >
                         Cash
                       </button>
                     </div>
                     <div class="col-lg-6">
-                      <button mat-raised-button class="btn btn-secondary payment-btn">
+                      <button
+                        mat-raised-button
+                        class="btn btn-secondary payment-btn"
+                      >
                         M-pesa
                       </button>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                      <label class="custom-control-label" for="customSwitch1">Full Payment</label>
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="customSwitch1"
+                      />
+                      <label class="custom-control-label" for="customSwitch1"
+                        >Full Payment</label
+                      >
                     </div>
                   </div>
                   <!-- <form class="form-horizontal"> -->
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">
-                        Cash Paid
-                      </label>
-                      <div class="col-sm-4">
-                        <!-- <input type="text" class="form-control"> -->
-                        <input
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">
+                      Cash Paid
+                    </label>
+                    <div class="col-sm-4">
+                      <!-- <input type="text" class="form-control"> -->
+                      <input
                         type="text"
                         class="form-control cart-input"
                         [(ngModel)]="cashPaid"
-                        (input)="cashPaid"
+                        (input)="(cashPaid)"
                       />
-                      </div>
                     </div>
+                  </div>
                   <!-- </form> -->
                   <div class="d-flex justify-content-md-start balance">
                     <p class="mr-2 font-weight-bold">Balance:</p>
-                    <p>{{getTotal() - cashPaid}}</p>
+                    <p>{{ getTotal() - cashPaid }}</p>
                   </div>
                   <div>
-                    <button mat-raised-button class="btn btn-success payment-btn mt-1">
+                    <button
+                      mat-raised-button
+                      class="btn btn-success payment-btn mt-1"
+                    >
                       Complete Sale
                     </button>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>

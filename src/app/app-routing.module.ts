@@ -117,14 +117,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'posCategories',
-  //   component: PosCategoriesComponent,
-  // },
-  // {
-  //   path: 'posProducts/:categoryId',
-  //   component: PosProductsComponent,
-  // },
   {
     path: 'posBalances',
     component: PosBalancesComponent,

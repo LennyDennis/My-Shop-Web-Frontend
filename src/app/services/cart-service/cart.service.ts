@@ -8,7 +8,7 @@ import { SellProduct } from 'src/app/models/sellproduct';
 export class CartService {
 
   products: SellProduct[] = [];
-  customer: Customer;
+  // customer: Customer;
 
   constructor() { }
 
@@ -16,18 +16,20 @@ export class CartService {
     this.products.push(product);
   }
 
-  addCartDetailsToCheckout(products: SellProduct[],customer: Customer) {
+  addCartDetailsToCheckout(products: SellProduct[]) {
     this.products = products;
-    if(customer){
-      this.customer = customer
-    }
+    // if(customer != undefined){
+    //   this.customer = customer
+    // }
   }
-
-
 
   getCheckoutProducts() {
     return this.products;
   }
+
+  // getCutomer() {
+  //   return this.customer;
+  // }
 
   clearCart() {
     this.products = [];

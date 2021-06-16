@@ -1,48 +1,56 @@
 import { Component, OnInit } from '@angular/core';
+import { NgSelectConfig } from '@ng-select/ng-select';
+import { Customer } from 'src/app/models/customer';
 import { Product } from 'src/app/models/product';
 import { SellProduct } from 'src/app/models/sellproduct';
 import { CartService } from 'src/app/services/cart-service/cart.service';
+import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
   selector: 'app-pos-checkout',
   templateUrl: './pos-checkout.component.html',
-  styleUrls: ['./pos-checkout.component.css']
+  styleUrls: ['./pos-checkout.component.css'],
 })
 export class PosCheckoutComponent implements OnInit {
-
   products: SellProduct[] = [];
-  cashPaid:number = 0;
+  customer: Customer;
+  cashPaid: number = 0;
+  customers = [];
+  customerSelected?: string;
 
   constructor(
-    private _cartService: CartService
-  ) { }
+    private _cartService: CartService,
+    private _userService: UserService,
+    private config: NgSelectConfig
+  ) {}
 
   ngOnInit(): void {
-    this.products = this._cartService.getCheckoutProducts()
-    console.log(this.products)
+    this.products = this._cartService.getCheckoutProducts();
+    this.getCustomers();
+
+    // if (this._cartService.getCutomer() != undefined) {
+    //   this.customer = this._cartService.getCutomer();
+    // }
   }
 
-  getTotal():number{
+  getTotal(): number {
     var total = 0;
-    for(var i = 0; i < this.products.length; i++){
-        var product = this.products[i];
-        total += (product.cartSellingPrice * product.cartQuantityToSell);
+    for (var i = 0; i < this.products.length; i++) {
+      var product = this.products[i];
+      total += product.cartSellingPrice * product.cartQuantityToSell;
     }
     return total;
   }
 
-  // enterCashPaid(event: Event): number {
-  //   return (event.target as HTMLInputElement).value;
-  // }
-
-  // getBalance():number{
-  //   this.totalCost - this.cashPaid
-  //   var total = 0;
-  //   for(var i = 0; i < this.productCartList.length; i++){
-  //       var product = this.productCartList[i];
-  //       total += (product.cartSellingPrice * product.cartQuantityToSell);
-  //   }
-  //   return total;
-  // }
+  getCustomers() {
+    // customer role Id = 3
+    let customerRoleId = 3;
+    this._userService.getUserByRole(customerRoleId).subscribe(
+      (res) => {
+        this.customers = (<any>res).customers;
+      },
+      (err) => {}
+    );
+  }
 
 }
