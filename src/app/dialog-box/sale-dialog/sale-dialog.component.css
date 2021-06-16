@@ -1,0 +1,9 @@
+.icon {
+  color: red;
+  text-shadow: 1px 1px 1px #ccc;
+  font-size: 5.5em;
+}
+.text{
+  font-size: 24px;
+  text-align: end;
+}
