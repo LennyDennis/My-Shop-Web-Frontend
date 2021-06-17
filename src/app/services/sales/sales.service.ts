@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,18 @@ export class SalesService {
   public getBalancesById(balanceId) {
     const params = new HttpParams().set('balanceId', balanceId);
     return this._http.get(this._balanceUrl + 'detail', { params });
+  }
+
+  public createSale(saleDetails){
+    return this._http.post<any>(this._salesUrl, saleDetails).pipe(
+      map(
+        (result) => {
+          return result;
+        },
+        (error) => {
+          return error;
+        }
+      )
+    );
   }
 }

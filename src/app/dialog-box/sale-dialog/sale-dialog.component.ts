@@ -9,7 +9,6 @@ import { Sale } from 'src/app/models/sale';
   styleUrls: ['./sale-dialog.component.css']
 })
 export class SaleDialogComponent implements OnInit {
-
   action: string;
   saleData: any;
 

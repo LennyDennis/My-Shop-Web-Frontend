@@ -93,6 +93,7 @@
                             bindValue="id"
                             [(ngModel)]="customerSelected"
                             placeholder="Select customer.."
+                            (clear)="resetSelectedCustomer();"
                           >
                           </ng-select>
                         </div>
