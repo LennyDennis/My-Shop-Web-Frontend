@@ -35,8 +35,6 @@ export class BalancesComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _salesService: SalesService,
-    private _router: Router,
-    private _route: ActivatedRoute
   ) {}
 
   ngOnInit() {

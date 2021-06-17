@@ -36,4 +36,17 @@ export class SalesService {
       )
     );
   }
+
+  public clearBalance(balanceDetails){
+    return this._http.put<any>(this._balanceUrl, balanceDetails).pipe(
+      map(
+        (result) => {
+          return result;
+        },
+        (error) => {
+          return error;
+        }
+      )
+    );
+  }
 }

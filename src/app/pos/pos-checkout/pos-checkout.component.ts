@@ -103,7 +103,6 @@ export class PosCheckoutComponent implements OnInit {
   }
 
   proceedToCheckOut() {
-
     this.openDialog('Confirm Sale', {});
   }
 
@@ -120,8 +119,6 @@ export class PosCheckoutComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result.event == 'Confirm Sale') {
         this.confirmSale();
-      } else if (result.event == 'Pay Balance') {
-        this.payBalance();
       }
     });
   }
@@ -154,6 +151,4 @@ export class PosCheckoutComponent implements OnInit {
       }
     )
   }
-
-  payBalance() {}
 }

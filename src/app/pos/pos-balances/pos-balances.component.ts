@@ -36,12 +36,9 @@ export class PosBalancesComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _salesService: SalesService,
-    private route: ActivatedRoute
   ) {}
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const balanceIdFromRoute = Number(routeParams.get('balanceId'));
-    this.getBalanceDetails(balanceIdFromRoute);
+    this.getBalances();
   }
 
   applyFilter(event: Event) {
@@ -49,9 +46,8 @@ export class PosBalancesComponent implements OnInit {
     this.balances.filter = filterValue.trim().toLowerCase();
   }
 
-  getBalanceDetails(balanceId) {
-    console.log(balanceId);
-    this._salesService.getBalancesById(balanceId).subscribe(
+  getBalances() {
+    this._salesService.getBalances().subscribe(
       (res) => {
         let balanceList = (<any>res).balances;
         let balanceArray = [];

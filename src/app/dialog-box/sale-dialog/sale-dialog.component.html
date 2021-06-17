@@ -1,7 +1,11 @@
 <div mat-dialog-content>
-  <div class="d-flex justify-content-between mb-2">
+  <div class="text-center mb-2">
     <i class="fas fa-exclamation-triangle icon"></i>
-    <p class="text align-self-center">Confirm Sale of <b>{{saleData.cashPaid}}</b></p>
+  </div>
+
+  <div class="mb-2">
+    <p *ngIf="action == 'Confirm Sale'" class="text align-self-center ">Confirm Sale of <br><br><span class="cashPaid"><b>{{saleData.cashPaid}}</b></span></p>
+    <p *ngIf="action == 'Balance Payment'" class="text align-self-center ">Confirm balance payment of <br><br><span class="cashPaid"><b>{{saleData.cashPaid}}</b></span></p>
   </div>
 </div>
 <div mat-dialog-actions class="row justify-content-between">
@@ -10,3 +14,4 @@
     Confirm
   </button>
 </div>
+

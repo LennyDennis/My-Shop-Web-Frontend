@@ -97,13 +97,19 @@
                     </div>
                   </form>
                   <div class="d-flex justify-content-md-start balance">
-                    <p class="mr-2">Balance:</p>
-                    <p>{{sale.balance - cashPaid}}</p>
+                    <div *ngIf="(sale.balance - cashPaid) >= 0; else warning" class="d-flex">
+                      <p class="mr-2 font-weight-bold">Balance:</p>
+                      <p>{{sale.balance - cashPaid}}</p>
+                    </div>
+                    <ng-template #warning>
+                      <p class="mr-2 font-weight-bold text-danger">Balance:</p>
+                      <p class="text-danger">{{sale.balance - cashPaid}}</p>
+                    </ng-template>
                   </div>
 
                 </div>
                 <div class="card-footer font-weight-bold">
-                  <button mat-raised-button class="btn btn-success payment-btn mt-1">
+                  <button mat-raised-button class="btn btn-success payment-btn mt-1" (click)="completeBalancePayment()">
                     Complete Payment
                   </button>
                 </div>

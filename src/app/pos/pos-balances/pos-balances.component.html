@@ -27,14 +27,16 @@
               <ul class="notification px-1">
                 <li *ngFor="let balance of (balances.data| slice: lowValue : highValue); let i = index">
                   <div class="mat-elevation-z5 py-3 px-4 mb-3 rounded-lg d-flex justify-content-md-between">
-                    <div class="index align-self-center ml-3">{{balance.id}}</div>
-                    <div class="header align-self-center">{{balance.customer}}</div>
-                    <div><span>Total:</span><br>{{balance.totalCost}}</div>
-                    <div><span>Paid:</span><br>{{balance.paid}}</div>
-                    <div><span>Balance:</span><br>{{balance.balance}}</div>
-                    <div><span>Sale Date:</span><br>{{balance.lastPaid}}</div>
+                    <div class="index align-self-center ml-3">
+                      {{1+i + (paginator.pageIndex * paginator.pageSize)}}
+                    </div>
+                    <div>Customer:<br><span class="header align-self-center">{{balance.customer}}</span></div>
+                    <div>Total:<br><span class="header align-self-center">{{balance.totalCost}}</span></div>
+                    <div>Paid:<br><span class="header align-self-center">{{balance.cashPaid}}</span></div>
+                    <div>Balance:<br><span class="header align-self-center">{{balance.balance}}</span></div>
+                    <div>Last Paid:<br><span class="header align-self-center">{{balance.modifiedOn}}</span></div>
                     <div>
-                      <button mat-raised-button class="btn btn-success">
+                      <button mat-raised-button class="btn btn-success" [routerLink]="['/posBalancesPayment', balance.id]">
                         Clear Balance
                       </button>
                     </div>
