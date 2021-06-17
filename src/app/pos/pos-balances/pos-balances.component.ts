@@ -1,12 +1,14 @@
+import { Route } from '@angular/compiler/src/core';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Balance } from 'src/app/models/balance';
 import { Product } from 'src/app/models/product';
+import { RoutingService } from 'src/app/services/routing-service/routing.service';
 import { SalesService } from 'src/app/services/sales/sales.service';
 
 @Component({
@@ -36,6 +38,8 @@ export class PosBalancesComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _salesService: SalesService,
+    private router:Router,
+    private routingService: RoutingService,
   ) {}
   ngOnInit() {
     this.getBalances();

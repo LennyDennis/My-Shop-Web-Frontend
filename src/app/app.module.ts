@@ -49,6 +49,7 @@ import { CartService } from './services/cart-service/cart.service';
 import { NgSelectModule} from '@ng-select/ng-select';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 import { SaleDialogComponent } from './dialog-box/sale-dialog/sale-dialog.component';
+import { RoutingService } from './services/routing-service/routing.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { SaleDialogComponent } from './dialog-box/sale-dialog/sale-dialog.compon
     CategoryService,
     SalesService,
     UserService,
-    CartService
+    CartService,
+    RoutingService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

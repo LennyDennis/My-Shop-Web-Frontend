@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
+import { Observable } from 'rxjs';
+import { filter, pairwise } from 'rxjs/operators';
 import { SaleDialogComponent } from 'src/app/dialog-box/sale-dialog/sale-dialog.component';
 import { Product } from 'src/app/models/product';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
+import { RoutingService } from 'src/app/services/routing-service/routing.service';
 import { SalesService } from 'src/app/services/sales/sales.service';
 
 @Component({
@@ -15,17 +18,24 @@ export class PosBalancePaymentComponent implements OnInit {
   sale: any;
   saleDetailsList = [];
   cashPaid: number;
+  previousUrl: string = '';
 
   constructor(
     public dialog: MatDialog,
     private _salesService: SalesService,
+    private routingService: RoutingService,
     private route: ActivatedRoute,
     private notification: NotificationService,
+    private router: Router
   ) {
     this.cashPaid = 0;
   }
 
   ngOnInit() {
+    this.routingService.previousUrl$.subscribe((previousUrl: string) => {
+        this.previousUrl = previousUrl
+    });
+
     const routeParams = this.route.snapshot.paramMap;
     const balanceIdFromRoute = Number(routeParams.get('balanceId'));
     this.getBalanceDetails(balanceIdFromRoute);
@@ -44,7 +54,16 @@ export class PosBalancePaymentComponent implements OnInit {
         this.sale = saleInfo;
         this.saleDetailsList = saleDetails;
       },
-      (err) => {}
+      (err) => {
+
+        if(err.error === 'This sale does not have any balance'){
+          if(this.previousUrl != null){
+            this.router.navigate([this.previousUrl]);
+          }else{
+            this.router.navigate(['/posHome']);
+          }
+        }
+      }
     );
   }
 
@@ -85,7 +104,7 @@ export class PosBalancePaymentComponent implements OnInit {
     this._salesService.clearBalance(balanceDetail).subscribe(
       (res) => {
         this.notification.showSuccess(res.message);
-        this.ngOnInit();
+        this.router.navigate([this.previousUrl]);
       },
       (err) => {
         this.notification.showError(err.error);
