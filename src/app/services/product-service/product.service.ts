@@ -18,6 +18,10 @@ export class ProductService {
     return this._http.get(this._productRootUrl + 'outOfStock');
   }
 
+  public getOutOfStockNotifications() {
+    return this._http.get(this._productRootUrl + 'notification');
+  }
+
   public getMostSoldProducts() {
     return this._http.get(this._productRootUrl + 'mostSold');
   }

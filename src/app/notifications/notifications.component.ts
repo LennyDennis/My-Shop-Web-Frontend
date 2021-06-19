@@ -1,41 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from '../models/product';
-
-
-const PRODUCT_DATA: Product[] = [
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watch',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'},
-  {id: 1, name: 'Watchjhb',category:'Electronic',buyingPrice:100,sellingPrice:200,maxDiscount:50,sold:10,profit:1000,quantity:1,status:'Active'}
-];
+import { Page } from 'tns-core-modules/ui/page';import { NotificationService } from '../services/notification-service/notification.service';
+import { ProductService } from '../services/product-service/product.service';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  styleUrls: ['./notifications.component.css'],
 })
 export class NotificationsComponent implements OnInit {
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  notificationsArray = new MatTableDataSource(PRODUCT_DATA);
+  notifications = new MatTableDataSource();
 
   lowValue: number = 0;
   highValue: number = 5;
-  length = this.notificationsArray.data.length
+  length = this.notifications.data.length;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 20, 100];
   pageEvent: PageEvent;
@@ -46,14 +30,33 @@ export class NotificationsComponent implements OnInit {
     return event;
   }
 
-  constructor() {}
+  constructor(
+    public dialog: MatDialog,
+    private productService: ProductService,
+    private notificationsAlert: NotificationService
+  ) {}
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+      this.getOutOfStockNotifications();
+  }
 
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.notificationsArray.filter = filterValue.trim().toLowerCase();
-    }
+  public ngOnDestroy() {
+    console.log()
+  }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.notifications.filter = filterValue.trim().toLowerCase();
+  }
+
+  getOutOfStockNotifications() {
+    this.productService.getOutOfStockNotifications().subscribe(
+      (res) => {
+        this.notifications = new MatTableDataSource((<any>res).products);
+        // this.notifications.paginator = this.paginator;
+        // this.notifications.sort = this.sort;
+      },
+      (err) => {}
+    )
+  }
 }
