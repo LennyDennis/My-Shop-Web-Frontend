@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product-service/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  notifications = [];
+
+  constructor(
+    private productService:ProductService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+  getOutOfStockNotifications() {
+    this.productService.getOutOfStockNotifications().subscribe(
+      (res) => {
+        this.notifications = (<any>res).products;
+      },
+      (err) => {}
+    );
   }
 
 }

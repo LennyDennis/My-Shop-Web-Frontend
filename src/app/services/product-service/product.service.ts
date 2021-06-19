@@ -22,6 +22,23 @@ export class ProductService {
     return this._http.get(this._productRootUrl + 'notification');
   }
 
+  clearNotifications(products) {
+    console.log(products)
+    return this._http.put<any>(this._productRootUrl + 'notification', products).pipe(
+      map(
+        (result) => {
+          console.log("pass")
+          return result;
+
+        },
+        (error) => {
+          console.log("fail")
+          return error;
+        }
+      )
+    );
+  }
+
   public getMostSoldProducts() {
     return this._http.get(this._productRootUrl + 'mostSold');
   }

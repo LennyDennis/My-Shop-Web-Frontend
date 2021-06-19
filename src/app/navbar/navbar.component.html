@@ -11,13 +11,13 @@
 
     <li class="nav-item">
       <a class="nav-link" href="/outOfStockNotication">
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
+        <i class="far fa-bell fa-2x"></i>
+        <span *ngIf="notifications.length>0" class="badge badge-warning navbar-badge ">{{notifications.length}}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/profile">
-        <i class="fas fa-user-circle mr-2"></i>
+      <a class="nav-link " href="/profile">
+        <i class="fas fa-user-circle mr-2 fa-2x"></i>
         <span>User Name</span>
       </a>
     </li>

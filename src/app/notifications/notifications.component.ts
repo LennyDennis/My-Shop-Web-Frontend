@@ -1,9 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Page } from 'tns-core-modules/ui/page';import { NotificationService } from '../services/notification-service/notification.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Product } from '../models/product';
+// import { Page } from "tns-core-modules/ui/page";
+import { NotificationService } from '../services/notification-service/notification.service';
 import { ProductService } from '../services/product-service/product.service';
 
 @Component({
@@ -33,15 +38,12 @@ export class NotificationsComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private productService: ProductService,
-    private notificationsAlert: NotificationService
+    private notificationsAlert: NotificationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-      this.getOutOfStockNotifications();
-  }
-
-  public ngOnDestroy() {
-    console.log()
+    this.getOutOfStockNotifications();
   }
 
   applyFilter(event: Event) {
@@ -53,10 +55,23 @@ export class NotificationsComponent implements OnInit {
     this.productService.getOutOfStockNotifications().subscribe(
       (res) => {
         this.notifications = new MatTableDataSource((<any>res).products);
-        // this.notifications.paginator = this.paginator;
-        // this.notifications.sort = this.sort;
+        var products : any[] = [];
+        if((<any>res).products){
+          for (let product of (<any>res).products) {
+            let productId = {
+              id:product.productId
+            }
+            products.push(productId)
+          }
+          this.productService.clearNotifications(products).subscribe(
+            (res) => {
+            },
+            (err) => {
+            }
+          );
+        }
       },
       (err) => {}
-    )
+    );
   }
 }
