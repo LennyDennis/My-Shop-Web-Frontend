@@ -14,11 +14,11 @@
   <section class="content">
     <div class="container-fluid">
 
-      <div class="row">
+      <div class="row" *ngIf="totalStats">
         <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{totalStats.productsSold}}</h3>
               <p>Products Sold</p>
             </div>
             <div class="icon">
@@ -29,8 +29,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53</h3>
-
+              <h3>{{totalStats.sales}}</h3>
               <p>Sales</p>
             </div>
             <div class="icon">
@@ -41,8 +40,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
-
+              <h3>{{totalStats.profits}}</h3>
               <p>Sales Profits</p>
             </div>
             <div class="icon">
@@ -53,9 +51,8 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
-
-              <p>Customers</p>
+              <h3>{{totalStats.balances}}</h3>
+              <p>Balances</p>
             </div>
             <div class="icon">
               <i class="ion ion-person"></i>
@@ -66,14 +63,120 @@
 
       <section class="content">
 
-        <!-- Today's Transaction -->
-        <app-transactions></app-transactions>
+        <div class="card" *ngFor="let item of stats">
+          <div class="card-header bg-info pb-0" *ngIf="item.today">
+            <h3>Today's Transaction</h3>
+          </div>
+          <div class="card-header bg-info pb-0" *ngIf="item.month">
+            <h3>This Month's Transaction</h3>
+          </div>
+          <div class="card-header bg-info pb-0" *ngIf="item.year">
+            <h3>This Year's Transaction</h3>
+          </div>
+          <div class="card-body">
 
-        <!-- This month's Transaction -->
-        <app-transactions></app-transactions>
+            <div class="row" *ngIf="item.today" >
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.today.productsSold}}</span></h2>
+                    <span class="info-box-text">Products Sold</span>
+                  </div>
+                </div>
+              </div>
 
-        <!-- This years transaction -->
-        <app-transactions></app-transactions>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.today.sales}}</span></h2>
+                    <span class="info-box-text">Sales</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix hidden-md-up"></div>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-signal"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.today.profits}}</span></h2>
+                    <span class="info-box-text">Sales Profits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="item.month" >
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.month.productsSold}}</span></h2>
+                    <span class="info-box-text">Products Sold</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.month.sales}}</span></h2>
+                    <span class="info-box-text">Sales</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix hidden-md-up"></div>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-signal"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.month.profits}}</span></h2>
+                    <span class="info-box-text">Sales Profits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="item.year" >
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tags"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.year.productsSold}}</span></h2>
+                    <span class="info-box-text">Products Sold</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.year.sales}}</span></h2>
+                    <span class="info-box-text">Sales</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clearfix hidden-md-up"></div>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="info-box mb-3 elevation-4">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-signal"></i></span>
+                  <div class="info-box-content">
+                    <h2><span class="info-box-number">{{item.year.profits}}</span></h2>
+                    <span class="info-box-text">Sales Profits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
 
       </section>
 

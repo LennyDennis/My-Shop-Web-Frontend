@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatsService } from '../services/stats-service/stats.service';
 
 @Component({
   selector: 'app-my-dashboard',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyDashboardComponent implements OnInit {
 
-  user:string;
+  totalStats:any
+  stats = [];
 
   constructor(
-  ) {
-    this.user = "myDashboard";
-  }
+    private statsService:StatsService
+  ) { }
 
   ngOnInit(): void {
+    this.getStatsByUser()
+  }
+
+  getStatsByUser() {
+    let userId = 19;
+    this.statsService.getStatsByUser(userId).subscribe(
+      (res) => {
+        this.totalStats = (<any>res).totalStats
+        this.stats = (<any>res).stats
+      },
+      (err) => {}
+    );
   }
 
 }
