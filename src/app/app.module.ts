@@ -51,6 +51,7 @@ import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 import { SaleDialogComponent } from './dialog-box/sale-dialog/sale-dialog.component';
 import { RoutingService } from './services/routing-service/routing.service';
 import { StatsService } from './services/stats-service/stats.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { StatsService } from './services/stats-service/stats.service';
     PosBalancePaymentComponent,
     OutOfStockComponent,
     SaleDialogComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

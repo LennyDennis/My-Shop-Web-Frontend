@@ -106,16 +106,6 @@ const routes: Routes = [
   {
     path: 'posHome',
     component: PosHomeComponent,
-    children:[
-      {
-        path: 'posCategories',
-        component: PosCategoriesComponent,
-      },
-      {
-        path: 'posProducts/:categoryId',
-        component: PosProductsComponent,
-      }
-    ]
   },
   {
     path: 'posBalances',

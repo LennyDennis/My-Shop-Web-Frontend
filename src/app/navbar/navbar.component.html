@@ -10,13 +10,13 @@
   <ul class="navbar-nav ml-auto">
 
     <li class="nav-item">
-      <a class="nav-link" href="/outOfStockNotication">
+      <a class="nav-link" routerLink="/outOfStockNotication">
         <i class="far fa-bell fa-2x"></i>
         <span *ngIf="notifications.length>0" class="badge badge-warning navbar-badge ">{{notifications.length}}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " href="/profile">
+      <a class="nav-link " routerLink="/profile">
         <i class="fas fa-user-circle mr-2 fa-2x"></i>
         <span>User Name</span>
       </a>
